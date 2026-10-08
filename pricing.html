@@ -87,42 +87,42 @@
 </script>
 <style>
 :root{
-  /* Brand Guidelines Palette (Deep Navy, Royal Blue, Sky Blue, Teal, Sun Amber, Gold Shadow, Warm Cream, Slate) */
+  /* Brand Palette — Inspired by VirtualX clean blue SaaS aesthetic */
   --navy:#0F2E5C;
   --navy-2:#091E3D;
-  --royal:#1554C9;
+  --royal:#0076F5;
   --sky:#1E8FE6;
-  --sky-soft:#EBF5FD;
-  --teal:#12C2C9;
-  --teal-2:#0FA8AE;
-  --teal-light:#6BE3E7;
-  --gold:#F9A91B;
-  --amber:#F9A91B;
-  --gold-shadow:#FFC24D;
-  --gold-soft:#FFF7E5;
-  --sand:#FFC24D;
+  --sky-soft:#F2F9FF;
+  --teal:#0076F5;
+  --teal-2:#005EC5;
+  --teal-light:#6EB8FF;
+  --gold:#0076F5;
+  --amber:#0076F5;
+  --gold-shadow:#3D9AFF;
+  --gold-soft:#EBF4FF;
+  --sand:#3D9AFF;
 
   --white:#FFFFFF;
-  --cream:#F8EFDD;
-  --cream-base:#F3E7D1;
-  --text:#0F2E5C;
-  --slate:#46566B;
-  --muted:#46566B;
-  --line:#E6DFD2;
-  --line-cool:#D5E5F5;
+  --cream:#F8FBFF;
+  --cream-base:#F0F5FB;
+  --text:#181818;
+  --slate:#6D6D6D;
+  --muted:#6D6D6D;
+  --line:#EFEFEF;
+  --line-cool:#E0EAF5;
   --ok:#1C7A55;
   --err:#B5382A;
 
-  --ribbon-gradient:linear-gradient(90deg, #12C2C9 0%, #1E8FE6 35%, #1554C9 70%, #F9A91B 100%);
-  --shadow-card:0 2px 4px rgba(15,46,92,.05),0 10px 24px -8px rgba(15,46,92,.12);
-  --shadow-lift:0 4px 8px rgba(15,46,92,.06),0 22px 40px -12px rgba(15,46,92,.22);
-  --r-btn:10px;
+  --ribbon-gradient:linear-gradient(90deg, #0076F5 0%, #3255FD 50%, #0076F5 100%);
+  --shadow-card:0 2px 8px rgba(0,0,0,.04),0 8px 24px -8px rgba(0,0,0,.08);
+  --shadow-lift:0 4px 12px rgba(0,0,0,.06),0 20px 40px -12px rgba(0,0,0,.14);
+  --r-btn:8px;
   --r-card:16px;
-  --r-big:22px;
+  --r-big:20px;
   --wrap:1200px;
   --font:"Inter", system-ui, -apple-system, sans-serif;
-  --font-heading:"Outfit", "Inter", system-ui, sans-serif;
-  --font-slogan:"Poppins", system-ui, sans-serif;
+  --font-heading:"Inter", system-ui, sans-serif;
+  --font-slogan:"Inter", system-ui, sans-serif;
   color-scheme: light;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -145,29 +145,29 @@ h3{font-size:1.15rem;font-weight:700;letter-spacing:-0.01em}
 p{margin:0}
 .lede{font-size:clamp(1.05rem,1.5vw,1.2rem);color:var(--muted);max-width:60ch}
 .section{padding:clamp(72px,9vw,112px) 0}
-.tint{background:var(--cream)}
+.tint{background:var(--sky-soft)}
 .head{max-width:720px;margin:0 auto 48px;text-align:center}
 .head p{margin:16px auto 0;color:var(--muted);max-width:60ch}
 .head.left{margin-left:0;text-align:left}
 .head.left p{margin-left:0}
-.eyebrow{display:inline-block;font-weight:700;font-size:.92rem;color:var(--teal);background:var(--sky-soft);padding:5px 14px;border-radius:999px;margin-bottom:16px}
+.eyebrow{display:inline-block;font-weight:600;font-size:.88rem;color:var(--royal);background:var(--sky-soft);padding:6px 16px;border-radius:999px;margin-bottom:16px;letter-spacing:.02em}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:var(--r-btn);border:2px solid transparent;font-weight:700;font-size:1rem;text-decoration:none;white-space:nowrap;transition:background-color .15s,border-color .15s,color .15s,transform .15s}
-.btn-primary{background:var(--teal);color:#fff}
-.btn-primary:hover{background:var(--teal-2)}
-.btn-gold{background:var(--gold);color:var(--navy)}
-.btn-gold:hover{background:#E89A0A}
+.btn-primary{background:var(--royal);color:#fff;border-radius:8px}
+.btn-primary:hover{background:#005EC5}
+.btn-gold{background:var(--royal);color:#fff;border-radius:8px}
+.btn-gold:hover{background:#005EC5}
 .btn-outline{border-color:var(--line-cool);background:var(--white);color:var(--navy)}
-.btn-outline:hover{border-color:var(--teal);color:var(--teal)}
-.btn-ghost-light{border-color:rgba(255,255,255,.4);color:#fff}
+.btn-outline:hover{border-color:var(--royal);color:var(--royal)}
+.btn-ghost-light{border-color:rgba(255,255,255,.5);color:#fff;border-radius:8px}
 .btn-ghost-light:hover{border-color:#fff;background:rgba(255,255,255,.08)}
 .btn-sm{min-height:42px;padding:0 18px;font-size:.95rem}
 
 /* Header (navy bar) */
 .site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid rgba(219,230,242,.85);color:var(--navy);transition:background .2s,box-shadow .2s}
 .site-header.scrolled{background:rgba(255,255,255,.98);box-shadow:0 8px 24px -10px rgba(15,47,95,.18)}
-.site-header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--ribbon-gradient);box-shadow:0 1px 6px rgba(18,194,201,.25);z-index:10}
+.site-header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(0,0,0,.06);z-index:10}
 .site-header :focus-visible{outline-color:var(--royal)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:78px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy)}
@@ -182,7 +182,7 @@ p{margin:0}
 .nav-links{display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0}
 .nav-links > li > a,.menu-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 12px;white-space:nowrap;border-radius:9px;color:#243952;text-decoration:none;font-weight:600;font-size:.95rem;background:none;border:none;transition:color .18s,background .18s}
 .nav-links > li > a:hover,.menu-btn:hover,.menu-btn[aria-expanded="true"]{color:var(--royal);background:rgba(21,84,201,.07)}
-.nav-links > li > a.active,.menu-btn.active{color:var(--royal);background:rgba(21,84,201,.10);font-weight:700}
+.nav-links > li > a.active,.menu-btn.active{color:var(--royal);background:transparent;font-weight:700;border-bottom:2px solid var(--royal)}
 .menu-btn svg{flex:none;width:14px;height:14px;transition:transform .2s}
 .menu-btn[aria-expanded="true"] svg{transform:rotate(180deg)}
 .has-menu{position:relative}
@@ -197,8 +197,8 @@ p{margin:0}
 .dropdown small{display:block;font-size:.8rem;color:var(--muted);line-height:1.35}
 .dropdown :focus-visible{outline-color:var(--teal)}
 .nav-actions{display:flex;align-items:center;gap:10px}
-.btn-login{border:1px solid rgba(15,46,92,.22);color:var(--navy);background:transparent}
-.btn-login:hover{border-color:var(--royal);color:var(--royal);background:rgba(21,84,201,.06)}
+.btn-login{border:1px solid var(--royal);color:var(--royal);background:transparent;border-radius:8px}
+.btn-login:hover{border-color:#005EC5;color:#005EC5;background:rgba(0,118,245,.04)}
 .nav-toggle{display:none;width:46px;height:46px;border:1px solid rgba(15,46,92,.22);border-radius:var(--r-btn);background:#fff;color:var(--navy);align-items:center;justify-content:center}
 .mobile-menu{display:none;padding:6px 24px 24px;border-top:1px solid rgba(219,230,242,.85);background:#ffffff}
 .mobile-menu a{display:block;padding:14px 0;border-bottom:1px solid rgba(219,230,242,.65);color:var(--navy);font-weight:600;text-decoration:none}
@@ -227,7 +227,7 @@ p{margin:0}
 .view-switch{display:flex;justify-content:center;gap:10px;align-items:center;margin-bottom:18px;flex-wrap:wrap}
 .seg{display:inline-flex;background:var(--white);border-radius:12px;padding:5px;box-shadow:var(--shadow-card);gap:4px;max-width:100%;overflow-x:auto}
 .seg button{position:relative;border:none;background:none;padding:10px 16px;border-radius:9px;font-weight:700;font-size:.92rem;color:var(--muted);white-space:nowrap;overflow:hidden}
-.seg button[aria-selected="true"]{background:var(--navy);color:#fff}
+.seg button[aria-selected="true"]{background:var(--royal);color:#fff}
 .seg button .prog{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--gold)}
 .seg button[aria-selected="true"] .prog.run{animation:prog var(--dur,6s) linear forwards}
 @keyframes prog{to{width:100%}}
@@ -395,7 +395,7 @@ table{border-collapse:collapse;width:100%}
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
 .plan{display:flex;flex-direction:column;background:var(--white);border-radius:var(--r-big);box-shadow:var(--shadow-card);padding:32px 28px;position:relative}
 .plan.featured{background:var(--navy);color:#fff;box-shadow:var(--shadow-lift)}
-.plan .tag{position:absolute;top:-13px;left:28px;background:var(--gold);color:var(--navy);font-weight:800;font-size:.78rem;padding:4px 12px;border-radius:999px}
+.plan .tag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--royal);color:#fff;font-weight:700;font-size:.78rem;padding:5px 16px;border-radius:999px;z-index:5;white-space:nowrap}
 .plan h3{font-size:1.4rem}
 .plan .for{color:var(--muted);margin-top:6px;font-size:.96rem}
 .plan.featured .for{color:rgba(255,255,255,.75)}
@@ -457,7 +457,7 @@ table{border-collapse:collapse;width:100%}
 @media (max-width:520px){.form .two{grid-template-columns:1fr}}
 
 /* Footer */
-footer{background:var(--cream);color:var(--muted);padding:64px 0 36px;font-size:.96rem;border-top:1px solid var(--line)}
+footer{background:#F8FBFF;color:#6D6D6D;padding:64px 0 36px;font-size:.96rem;border-top:1px solid var(--line)}
 .foot-grid{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:28px}
 footer .about{margin-top:16px;max-width:34ch}
 footer h2{font-size:.98rem;color:var(--navy);letter-spacing:0;margin-bottom:14px}
@@ -480,7 +480,7 @@ footer a:hover{color:var(--teal);text-decoration:underline}
 .hero-bg{position:absolute;inset:0;z-index:-2}
 .hero-bg video{display:block;width:100%;height:100%;object-fit:cover;opacity:.62}
 .hero-tint{position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:radial-gradient(ellipse 62% 58% at 50% 46%,rgba(10,33,72,.62) 0%,rgba(10,33,72,.38) 62%,rgba(10,33,72,.30) 100%),
+  background:radial-gradient(ellipse 62% 58% at 50% 46%,rgba(10,33,72,.58) 0%,rgba(10,33,72,.35) 62%,rgba(10,33,72,.30) 100%),
              linear-gradient(180deg,rgba(10,33,72,.45) 0%,rgba(10,33,72,.10) 40%,rgba(10,33,72,.10) 70%,rgba(10,33,72,.70) 100%)}
 .hero-center{position:relative;z-index:1;width:100%;text-align:center;padding-top:clamp(56px,8vw,104px);padding-bottom:clamp(64px,8vw,112px);pointer-events:none}
 .hero-center a,.hero-center button{pointer-events:auto}
@@ -557,7 +557,7 @@ footer a:hover{color:var(--teal);text-decoration:underline}
 @media (max-width:900px){.faq-wrap{grid-template-columns:1fr}.faq-side{position:static}}
 
 /* Footer CTA band */
-.foot-cta{position:relative;overflow:hidden;background:linear-gradient(135deg,#0A2148 0%,#0F2F5F 55%,#174A94 100%);color:#fff;border-radius:var(--r-big);padding:clamp(32px,5vw,56px);display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;margin-bottom:56px}
+.foot-cta{position:relative;overflow:hidden;background:linear-gradient(135deg,#0A2148 0%,#0F2F5F 55%,#174A94 100%);border-radius:20px;color:#fff;border-radius:var(--r-big);padding:clamp(32px,5vw,56px);display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;margin-bottom:56px}
 .foot-cta h2{color:#fff;font-size:clamp(1.6rem,3vw,2.3rem)}
 .foot-cta p{margin-top:12px;color:rgba(255,255,255,.82)}
 .foot-cta .hero-ctas{justify-content:flex-end;margin-top:0}
@@ -568,7 +568,7 @@ footer a:hover{color:var(--teal);text-decoration:underline}
 
 /* Demo pop-up */
 dialog.demo{border:none;padding:0;background:transparent;width:min(640px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto}
-dialog.demo::backdrop{background:rgba(10,33,72,.62);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+dialog.demo::backdrop{background:rgba(10,33,72,.58);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
 dialog.demo .form{box-shadow:0 30px 60px -20px rgba(0,0,0,.5);position:relative}
 .modal-close{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:none;background:var(--sky-soft);color:var(--navy);display:grid;place-items:center}
 .modal-close:hover{background:var(--line-cool)}
@@ -609,7 +609,7 @@ dialog.demo .form{box-shadow:0 30px 60px -20px rgba(0,0,0,.5);position:relative}
 .mobile-menu .active-page{color:var(--gold)}
 .page-hero{position:relative;overflow:hidden;color:#fff;text-align:center;padding:clamp(56px,8vw,96px) 0 clamp(56px,7vw,88px);
   background:radial-gradient(800px 420px at 85% 0%,rgba(20,186,206,.28),transparent 62%),radial-gradient(640px 420px at 8% 100%,rgba(249,169,27,.14),transparent 60%),linear-gradient(160deg,#0A2148 0%,#0F2F5F 52%,#174A94 100%)}
-.page-hero .grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 0%,transparent 72%);mask-image:radial-gradient(ellipse at 50% 30%,#000 0%,transparent 72%)}
+.page-hero .grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 0%,transparent 72%);mask-image:radial-gradient(ellipse at 50% 30%,#000 0%,transparent 72%)}
 .page-hero .wrap{position:relative}
 .page-hero h1{color:#fff;font-size:clamp(2.1rem,4.4vw,3.4rem);max-width:860px;margin:0 auto}
 .page-hero h1 .hl{color:var(--gold)}
@@ -715,7 +715,7 @@ h1,h2,h3,.brand b,.page-hero h1,.head h2,.vx-head h2,.count b,.card h3,.fbox h2,
   position:relative;
   overflow:hidden;
   background:
-    radial-gradient(circle at 85% 15%, rgba(18,194,201,.18), transparent 30%),
+    radial-gradient(circle at 85% 15%, rgba(0,118,245,.15), transparent 30%),
     radial-gradient(circle at 15% 65%, rgba(21,84,201,.16), transparent 35%),
     linear-gradient(135deg, #071B36 0%, #0F2E5C 58%, #1554C9 100%) !important;
 }
@@ -744,7 +744,7 @@ h1,h2,h3,.brand b,.page-hero h1,.head h2,.vx-head h2,.count b,.card h3,.fbox h2,
 .card::before, .fbox::before, .feature-card::before, .svc-card::before, .plan::before{
   content:"";
   position:absolute;inset:0 0 auto 0;height:3px;
-  background:linear-gradient(90deg, #12C2C9 0%, #1E8FE6 45%, #F9A91B 100%);
+  background:linear-gradient(90deg, #0076F5 0%, #3255FD 50%, #0076F5 100%);
   opacity:.9;
   z-index:2;
 }
@@ -785,8 +785,8 @@ h1,h2,h3,.brand b,.page-hero h1,.head h2,.vx-head h2,.count b,.card h3,.fbox h2,
   font-size:.82rem !important;
   font-weight:800 !important;
   letter-spacing:.05em;
-  background:linear-gradient(135deg, #FFC24D, #F9A91B) !important;
-  color:#0F2E5C !important;
+  background:linear-gradient(135deg, #0076F5, #3255FD) !important;
+  color:#ffffff !important;
   padding:5px 14px !important;
   border-radius:99px !important;
   box-shadow:0 4px 14px rgba(249,169,27,.3) !important;
@@ -813,7 +813,7 @@ h1,h2,h3,.brand b,.page-hero h1,.head h2,.vx-head h2,.count b,.card h3,.fbox h2,
 }
 .compare thead th{
   background:#edf5fd !important;
-  color:#0F2E5C !important;
+  color:#ffffff !important;
   font-weight:800 !important;
 }
 .compare tbody tr:hover td{
@@ -822,9 +822,9 @@ h1,h2,h3,.brand b,.page-hero h1,.head h2,.vx-head h2,.count b,.card h3,.fbox h2,
 
 /* 7. Button & Link Micro-Interactions */
 .btn-gold{
-  background:linear-gradient(135deg, #FFC24D, #F9A91B) !important;
-  color:#0F2E5C !important;
-  box-shadow:0 8px 22px rgba(249,169,27,.28) !important;
+  background:linear-gradient(135deg, #0076F5, #3255FD) !important;
+  color:#ffffff !important;
+  box-shadow:0 8px 22px rgba(0,118,245,.28) !important;
   border:1px solid rgba(255,255,255,.2) !important;
 }
 .btn-gold:hover{
@@ -855,12 +855,2131 @@ h1,h2,h3,.brand b,.page-hero h1,.head h2,.vx-head h2,.count b,.card h3,.fbox h2,
   color:#ffffff !important;
   border:2px solid var(--royal) !important;
   box-shadow:0 24px 60px rgba(15,46,92,.22) !important;
+  margin-top:12px;
 }
 .plan.featured h3{color:#ffffff !important}
 .plan.featured .for{color:rgba(255,255,255,.82) !important}
 .plan.featured ul li{color:#ffffff !important}
 .plan.featured .incl{color:var(--gold) !important}
+
+
+/* ============================================================
+   MYVIRTUALX-INSPIRED ENHANCED DESIGN SYSTEM (V2)
+   ============================================================ */
+
+/* 1. Navbar enhancements */
+.site-header {
+  background: #ffffff !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.06) !important;
+}
+.site-header::after {
+  display: none !important;
+}
+.nav-links > li > a {
+  color: #1f2937 !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  transition: color 0.15s ease !important;
+}
+.nav-links > li > a:hover {
+  color: #0076F5 !important;
+}
+.nav-links > li > a.active, .menu-btn.active {
+  color: #0076F5 !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid #0076F5 !important;
+  background: transparent !important;
+}
+.btn-login {
+  border: 1px solid #0076F5 !important;
+  color: #0076F5 !important;
+  background: transparent !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 8px 22px !important;
+  transition: all 0.2s ease !important;
+}
+.btn-login:hover {
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 118, 245, 0.25) !important;
+}
+
+/* 2. Hero buttons & typography */
+.page-hero h1, .hero h1 {
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+}
+.btn-primary {
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 12px 26px !important;
+  box-shadow: 0 4px 14px rgba(0, 118, 245, 0.35) !important;
+  transition: all 0.2s ease !important;
+}
+.btn-primary:hover {
+  background: #005ec5 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 18px rgba(0, 118, 245, 0.45) !important;
+}
+.btn-ghost-light {
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 12px 26px !important;
+  transition: all 0.2s ease !important;
+}
+.btn-ghost-light:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+  border-color: rgba(255, 255, 255, 0.75) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 3. The Signature Dark Achievement Section ("We have something to be proud of!") */
+.wrap.proud, #why .wrap.proud, .proud {
+  background: #001831 !important;
+  border-radius: 32px !important;
+  padding: clamp(40px, 5vw, 64px) clamp(28px, 4vw, 56px) !important;
+  color: #ffffff !important;
+  display: grid !important;
+  grid-template-columns: 0.85fr 1.15fr !important;
+  gap: clamp(28px, 5vw, 64px) !important;
+  align-items: center !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 24px 60px rgba(0, 24, 49, 0.32) !important;
+  margin-block: 24px !important;
+}
+.wrap.proud::before, .proud::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -20%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 118, 245, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.wrap.proud h2, .proud h2 {
+  color: #ffffff !important;
+  font-size: clamp(2rem, 3.6vw, 2.8rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+}
+.wrap.proud .lead, .proud .lead {
+  margin-top: 14px !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-size: 1.05rem !important;
+  line-height: 1.6 !important;
+}
+.wrap.proud .more-link, .proud .more-link {
+  color: #38bdf8 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-weight: 600 !important;
+  margin-top: 22px !important;
+  text-decoration: none !important;
+  transition: gap 0.2s ease !important;
+}
+.wrap.proud .more-link:hover, .proud .more-link:hover {
+  gap: 12px !important;
+  color: #7dd3fc !important;
+}
+.proud-emblem-badge {
+  display: inline-block;
+  margin-top: 28px;
+  max-width: 130px;
+  filter: drop-shadow(0 0 25px rgba(0, 118, 245, 0.55));
+}
+.counts {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 20px !important;
+}
+.count {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  box-shadow: none !important;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease !important;
+}
+.count:hover {
+  transform: translateY(-3px) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(0, 118, 245, 0.45) !important;
+}
+.count .n {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 2px !important;
+  font-size: clamp(2.4rem, 4vw, 3.4rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1 !important;
+  background: linear-gradient(180deg, #A8C9FA 0%, #FFFFFF 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+.count .n i {
+  font-style: normal !important;
+  -webkit-text-fill-color: #38bdf8 !important;
+  color: #38bdf8 !important;
+}
+.count h3 {
+  margin-top: 10px !important;
+  font-size: 1.15rem !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+.count p {
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-size: 0.9rem !important;
+  margin-top: 6px !important;
+  line-height: 1.5 !important;
+}
+
+/* 4. The 3 Vibrant Step Cards (How it Works) */
+.steps {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 28px !important;
+}
+.step {
+  position: relative !important;
+  border-radius: 24px !important;
+  padding: 36px 30px !important;
+  text-align: center !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 12px 36px rgba(0, 24, 70, 0.14) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+.step:nth-child(1) {
+  background: linear-gradient(145deg, #5b73e8 0%, #3e52c8 100%) !important;
+}
+.step:nth-child(2) {
+  background: linear-gradient(145deg, #0076f5 0%, #0056bd 100%) !important;
+}
+.step:nth-child(3) {
+  background: linear-gradient(145deg, #0284c7 0%, #0369a1 100%) !important;
+}
+.step:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 48px rgba(0, 24, 70, 0.22) !important;
+}
+.step .art {
+  width: 140px !important;
+  height: 105px !important;
+  margin: 0 auto 20px !important;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15)) !important;
+}
+.step .num {
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-bottom: 12px !important;
+}
+.step .num::before {
+  content: "" !important;
+  display: none !important;
+}
+.step .step-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 5px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.step h3 {
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  margin-bottom: 10px !important;
+}
+.step p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.55 !important;
+}
+
+/* 5. Key Feature & Service Cards */
+.card {
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  padding: 28px !important;
+  transition: all 0.25s ease !important;
+  position: relative !important;
+}
+.card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 14px 34px rgba(0, 118, 245, 0.1) !important;
+  border-color: rgba(0, 118, 245, 0.3) !important;
+}
+.card h3 {
+  font-size: 1.18rem !important;
+  color: #1e293b !important;
+  font-weight: 600 !important;
+}
+.card p {
+  color: #64748b !important;
+  font-size: 0.94rem !important;
+  line-height: 1.55 !important;
+}
+.card .ic {
+  background: #f0f7ff !important;
+  color: #0076F5 !important;
+  border-radius: 12px !important;
+  width: 48px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 16px !important;
+}
+
+/* 6. Pre-Footer CTA Banner */
+.foot-cta {
+  background: linear-gradient(135deg, #0076F5 0%, #0052cc 100%) !important;
+  border-radius: 24px !important;
+  padding: clamp(36px, 5vw, 60px) clamp(28px, 4vw, 54px) !important;
+  color: #ffffff !important;
+  display: grid !important;
+  grid-template-columns: 1.25fr 0.75fr !important;
+  gap: 32px !important;
+  align-items: center !important;
+  margin-bottom: 56px !important;
+  box-shadow: 0 18px 46px rgba(0, 118, 245, 0.28) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.foot-cta::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  right: -20%;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.foot-cta h2 {
+  color: #ffffff !important;
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+}
+.foot-cta p {
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-size: 1.05rem !important;
+  margin-top: 10px !important;
+  line-height: 1.55 !important;
+}
+.foot-cta .btn-gold {
+  background: #ffffff !important;
+  color: #0076F5 !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  padding: 13px 30px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+  transition: all 0.2s ease !important;
+}
+.foot-cta .btn-gold:hover {
+  background: #f0f7ff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18) !important;
+}
+.foot-cta .btn-ghost-light {
+  background: rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 13px 30px !important;
+  transition: all 0.2s ease !important;
+}
+.foot-cta .btn-ghost-light:hover {
+  background: rgba(255, 255, 255, 0.28) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  color: #ffffff !important;
+}
+
+/* 7. Professional Footer */
+footer {
+  background: #ffffff !important;
+  color: #4b5563 !important;
+  padding: 64px 0 32px !important;
+  font-size: 0.95rem !important;
+  border-top: 1px solid #eef2f6 !important;
+}
+.foot-grid {
+  display: grid !important;
+  grid-template-columns: 1.6fr repeat(3, 1fr) !important;
+  gap: clamp(24px, 4vw, 48px) !important;
+}
+.foot-brand {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  max-width: 340px !important;
+}
+.foot-logo-card {
+  display: inline-block !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.foot-logo-img {
+  width: 140px !important;
+  height: auto !important;
+}
+.foot-tagline {
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #0076F5 !important;
+}
+footer .about {
+  color: #64748b !important;
+  font-size: 0.92rem !important;
+  line-height: 1.55 !important;
+}
+footer h2 {
+  font-size: 1rem !important;
+  color: #1e293b !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  margin-bottom: 16px !important;
+}
+footer ul {
+  display: grid !important;
+  gap: 10px !important;
+}
+footer a {
+  color: #64748b !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease !important;
+}
+footer a:hover {
+  color: #0076F5 !important;
+}
+.foot-bottom {
+  margin-top: 48px !important;
+  padding-top: 24px !important;
+  border-top: 1px solid #eef2f6 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  color: #94a3b8 !important;
+  font-size: 0.88rem !important;
+}
+.foot-socials {
+  display: flex !important;
+  gap: 12px !important;
+  align-items: center !important;
+}
+.foot-social-link {
+  width: 34px !important;
+  height: 34px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  background: #f1f5f9 !important;
+  color: #64748b !important;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+}
+.foot-social-link:hover {
+  transform: translateY(-2px) scale(1.1) !important;
+}
+.foot-social-link.yt:hover { background: #fee2e2 !important; color: #ef4444 !important; }
+.foot-social-link.fb:hover { background: #dbeafe !important; color: #1877f2 !important; }
+.foot-social-link.ig:hover { background: #fce7f3 !important; color: #e1306c !important; }
+.foot-social-link.li:hover { background: #e0f2fe !important; color: #0284c7 !important; }
+
+/* 8. Floating Action Chat Button */
+.floating-chat-btn {
+  position: fixed !important;
+  bottom: 28px !important;
+  right: 28px !important;
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50% !important;
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 8px 24px rgba(0, 118, 245, 0.45) !important;
+  z-index: 9999 !important;
+  cursor: pointer !important;
+  border: none !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
+  text-decoration: none !important;
+}
+.floating-chat-btn:hover {
+  transform: scale(1.08) !important;
+  background: #005ec5 !important;
+  box-shadow: 0 12px 28px rgba(0, 118, 245, 0.6) !important;
+}
+
+/* 9. Mobile responsiveness */
+@media (max-width: 900px) {
+  .wrap.proud, #why .wrap.proud, .proud {
+    grid-template-columns: 1fr !important;
+    padding: 36px 24px !important;
+  }
+  .counts {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .steps {
+    grid-template-columns: 1fr !important;
+  }
+  .foot-cta {
+    grid-template-columns: 1fr !important;
+    padding: 32px 24px !important;
+  }
+  .foot-cta .hero-ctas {
+    justify-content: flex-start !important;
+  }
+  .foot-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .foot-bottom {
+    flex-direction: column !important;
+    gap: 16px !important;
+    text-align: center !important;
+  }
+}
+@media (max-width: 600px) {
+  .counts {
+    grid-template-columns: 1fr !important;
+  }
+  .foot-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+
+
+
+/* ============================================================
+   SCORED MODERN SAAS DESIGN SYSTEM (CONSOLIDATED)
+   - Warm Cream Body Canvas (#FAF6F0)
+   - High-Visibility Crisp Navbar Logo (52px)
+   - Modern White Cards with Subtle Warm Shadows
+   - Signature Deep Navy Achievement Card (#001831)
+   - Sleek Deep Navy Footer (#001831)
+   ============================================================ */
+
+:root {
+  --cream: #FAF6F0 !important;
+  --cream-base: #F4ECE1 !important;
+  --cream-soft: #FBF8F3 !important;
+  --sky-soft: #FAF6F0 !important;
+  --white: #FFFFFF !important;
+  --text: #1a202c !important;
+}
+
+/* 1. Body & Canvas Warm Cream */
+body {
+  background-color: #FAF6F0 !important;
+  color: #1a202c !important;
+  font-family: var(--font, 'Inter', system-ui, sans-serif) !important;
+}
+
+main, 
+.section:not(.proud):not(.foot-cta-wrap),
+#services, #features, #pricing, #about, #why,
+.page-hero + .section {
+  background-color: transparent !important;
+}
+
+.section.tint, .tint, .bg-alt {
+  background-color: #F4ECE1 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 2. Site Header & High-Visibility Logo */
+.site-header {
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 2px 14px rgba(40, 30, 10, 0.04) !important;
+}
+
+.site-header::after {
+  display: none !important;
+}
+
+.site-header .brand {
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+}
+
+.brand-logo-img, .site-header .brand img {
+  height: 52px !important;
+  width: auto !important;
+  max-width: 220px !important;
+  object-fit: contain !important;
+  display: block !important;
+  filter: drop-shadow(0 2px 8px rgba(0, 118, 245, 0.16)) !important;
+  transition: transform 0.2s ease, filter 0.2s ease !important;
+}
+
+.site-header .brand:hover img {
+  transform: scale(1.02) !important;
+  filter: drop-shadow(0 4px 14px rgba(0, 118, 245, 0.28)) !important;
+}
+
+.nav-links > li > a {
+  color: #1f2937 !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  transition: color 0.15s ease !important;
+}
+
+.nav-links > li > a:hover {
+  color: #0076F5 !important;
+}
+
+.nav-links > li > a.active, .menu-btn.active {
+  color: #0076F5 !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid #0076F5 !important;
+  background: transparent !important;
+}
+
+.btn-login {
+  border: 1px solid #0076F5 !important;
+  color: #0076F5 !important;
+  background: transparent !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 8px 22px !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-login:hover {
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 118, 245, 0.25) !important;
+}
+
+.btn-primary {
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 12px 26px !important;
+  box-shadow: 0 4px 14px rgba(0, 118, 245, 0.35) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-primary:hover {
+  background: #005ec5 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 18px rgba(0, 118, 245, 0.45) !important;
+}
+
+/* 3. Floating White Cards on Warm Cream Canvas */
+.card, .svc-card, .why-card, .plan:not(.featured), .fbox, .feature-card, .grid-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.07) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 20px rgba(50, 40, 20, 0.05) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+}
+
+.card:hover, .svc-card:hover, .why-card:hover, .plan:not(.featured):hover, .feature-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 16px 36px rgba(50, 40, 20, 0.09) !important;
+  border-color: rgba(0, 118, 245, 0.25) !important;
+}
+
+/* 4. Module & Feature Pill Badges */
+.card-badge, .badge, .tag, [class*="-badge"], .svc-badge {
+  background: #EFF6FF !important;
+  color: #0076F5 !important;
+  border: 1px solid rgba(0, 118, 245, 0.18) !important;
+  font-weight: 600 !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  border-radius: 999px !important;
+  padding: 4px 12px !important;
+}
+
+/* 5. Pricing Card Badges (Centered, No Overlap) */
+.plan .plan-badge, .plan .badge-rec, .plan-popular-tag {
+  position: absolute !important;
+  top: -14px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.76rem !important;
+  padding: 4px 16px !important;
+  border-radius: 999px !important;
+  box-shadow: 0 4px 12px rgba(0, 118, 245, 0.35) !important;
+  z-index: 10 !important;
+  white-space: nowrap !important;
+}
+
+/* 6. Step Cards (Sign Up, Set Up, Launch) */
+.steps {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 28px !important;
+}
+
+@media (max-width: 900px) {
+  .steps { grid-template-columns: 1fr !important; }
+}
+
+.step {
+  position: relative !important;
+  border-radius: 24px !important;
+  padding: 36px 30px !important;
+  text-align: center !important;
+  color: #ffffff !important;
+  overflow: hidden !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.step:nth-child(1) { background: linear-gradient(145deg, #5b73e8 0%, #3e52c8 100%) !important; }
+.step:nth-child(2) { background: linear-gradient(145deg, #0076f5 0%, #0056bd 100%) !important; }
+.step:nth-child(3) { background: linear-gradient(145deg, #0284c7 0%, #0369a1 100%) !important; }
+
+.step:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 48px rgba(0, 24, 70, 0.22) !important;
+}
+
+.step .num {
+  background: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  display: block !important;
+  margin: 0 auto 18px auto !important;
+  text-align: center !important;
+}
+
+.step .num::before {
+  counter-increment: sp !important;
+  content: "Step " counter(sp) !important;
+  display: inline-block !important;
+  padding: 5px 16px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.22) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+.step::after {
+  display: none !important;
+}
+
+.step .art {
+  width: 140px !important;
+  height: 105px !important;
+  margin: 0 auto 20px !important;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15)) !important;
+}
+
+.step h3 {
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  margin-bottom: 10px !important;
+}
+
+.step p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.55 !important;
+}
+
+/* 7. Marquee Ticker Band */
+.mq-modules {
+  background: #F4ECE1 !important;
+  padding: 16px 0 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.07) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07) !important;
+  margin-block: 40px !important;
+}
+
+.mq-modules li {
+  gap: 24px !important;
+  padding-right: 24px !important;
+  color: #334155 !important;
+  font-weight: 600 !important;
+  font-size: 1.05rem !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+}
+
+.mq-modules li:nth-child(even) { color: #0076F5 !important; }
+.mq-modules .star { width: 14px !important; height: 14px !important; color: #0076F5 !important; }
+
+/* 8. Signature Deep Navy Proud Section (#001831) */
+.wrap.proud, #why .wrap.proud, .proud {
+  background: #001831 !important;
+  border-radius: 32px !important;
+  padding: clamp(40px, 5vw, 64px) clamp(28px, 4vw, 56px) !important;
+  color: #ffffff !important;
+  display: grid !important;
+  grid-template-columns: 0.85fr 1.15fr !important;
+  gap: clamp(28px, 5vw, 64px) !important;
+  align-items: center !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 24px 60px rgba(0, 24, 49, 0.35) !important;
+  margin-block: 24px !important;
+}
+
+@media (max-width: 900px) {
+  .wrap.proud, #why .wrap.proud, .proud { grid-template-columns: 1fr !important; }
+}
+
+.wrap.proud h2, .proud h2 {
+  color: #ffffff !important;
+  font-size: clamp(2rem, 3.6vw, 2.8rem) !important;
+  font-weight: 600 !important;
+}
+
+.wrap.proud .lead, .proud .lead {
+  margin-top: 14px !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-size: 1.05rem !important;
+}
+
+.counts {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 20px !important;
+}
+
+@media (max-width: 600px) {
+  .counts { grid-template-columns: 1fr !important; }
+}
+
+.count {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  transition: transform 0.2s ease, background 0.2s ease !important;
+}
+
+.count:hover {
+  transform: translateY(-3px) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(0, 118, 245, 0.45) !important;
+}
+
+.count .n {
+  display: flex !important;
+  align-items: baseline !important;
+  font-size: clamp(2.4rem, 4vw, 3.4rem) !important;
+  font-weight: 700 !important;
+  background: linear-gradient(180deg, #A8C9FA 0%, #FFFFFF 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+.count h3 { margin-top: 10px !important; color: #ffffff !important; font-size: 1.15rem !important; }
+.count p { color: rgba(255, 255, 255, 0.65) !important; font-size: 0.92rem !important; }
+
+/* 9. Pre-Footer Royal Blue CTA Banner */
+.foot-cta {
+  background: linear-gradient(135deg, #0076F5 0%, #0052cc 100%) !important;
+  border-radius: 28px !important;
+  padding: clamp(36px, 5vw, 56px) clamp(28px, 5vw, 64px) !important;
+  color: #ffffff !important;
+  display: grid !important;
+  grid-template-columns: 1.2fr 0.8fr !important;
+  gap: 32px !important;
+  align-items: center !important;
+  box-shadow: 0 20px 50px rgba(0, 118, 245, 0.35) !important;
+  margin-block: 20px 48px !important;
+}
+
+@media (max-width: 900px) {
+  .foot-cta { grid-template-columns: 1fr !important; padding: 32px 24px !important; }
+}
+
+.foot-cta h2 { font-size: clamp(1.8rem, 3.2vw, 2.5rem) !important; color: #ffffff !important; }
+.foot-cta p { color: rgba(255, 255, 255, 0.88) !important; margin-top: 10px !important; font-size: 1.05rem !important; }
+.foot-cta .actions { display: flex !important; gap: 14px !important; justify-content: flex-end !important; }
+@media (max-width: 900px) {
+  .foot-cta .actions { justify-content: flex-start !important; }
+}
+
+.btn-white {
+  background: #ffffff !important;
+  color: #0076F5 !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  padding: 14px 28px !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-white:hover {
+  background: #f0f7ff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* 10. SLEEK DEEP NAVY FOOTER (#001831) */
+footer, .site-footer {
+  background: #001831 !important;
+  color: #ffffff !important;
+  border-top: none !important;
+  padding-top: 60px !important;
+  padding-bottom: 40px !important;
+}
+
+footer a {
+  color: rgba(255, 255, 255, 0.72) !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease, transform 0.15s ease !important;
+}
+
+footer a:hover {
+  color: #38bdf8 !important;
+}
+
+.foot-col h4, footer .col h4, footer h3, footer b, .foot-head {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
+}
+
+footer p, .foot-tagline, footer small, .foot-desc {
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-size: 0.92rem !important;
+  line-height: 1.6 !important;
+}
+
+.foot-bottom, footer .bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+  padding-top: 24px !important;
+  margin-top: 48px !important;
+}
+
+.foot-bottom a {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.foot-bottom a:hover {
+  color: #ffffff !important;
+}
+
+.foot-social a, .social-links a {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  transition: all 0.2s ease !important;
+}
+
+.foot-social a:hover, .social-links a:hover {
+  background: #0076F5 !important;
+  border-color: #0076F5 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 118, 245, 0.35) !important;
+}
+
+.foot-logo-img {
+  filter: drop-shadow(0 2px 10px rgba(0, 118, 245, 0.35)) !important;
+}
+
+/* 11. Floating Quick Contact Action Button */
+.floating-chat-btn {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50% !important;
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 8px 24px rgba(0, 118, 245, 0.45) !important;
+  z-index: 999 !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.floating-chat-btn:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 12px 30px rgba(0, 118, 245, 0.6) !important;
+}
+
+
+
+/* ============================================================
+   SCORED MODERN SAAS DESIGN SYSTEM (PERFECTED)
+   - Warm Cream Body Canvas (#FAF6F0)
+   - Dedicated Header Logo (#scored-header-logo.png)
+   - Dedicated Footer Banner (#scored-footer-banner.png)
+   - High-Contrast Visible Dark Footer (#001831)
+   - Flawless Recommended Pricing Card (No Clipping Line, High Contrast)
+   ============================================================ */
+
+:root {
+  --cream: #FAF6F0 !important;
+  --cream-base: #F4ECE1 !important;
+  --cream-soft: #FBF8F3 !important;
+  --sky-soft: #FAF6F0 !important;
+  --white: #FFFFFF !important;
+  --text: #1a202c !important;
+}
+
+/* 1. Body & Canvas Warm Cream */
+body {
+  background-color: #FAF6F0 !important;
+  color: #1a202c !important;
+  font-family: var(--font, 'Inter', system-ui, sans-serif) !important;
+}
+
+main, 
+.section:not(.proud):not(.foot-cta-wrap),
+#services, #features, #pricing, #about, #why,
+.page-hero + .section {
+  background-color: transparent !important;
+}
+
+.section.tint, .tint, .bg-alt {
+  background-color: #F4ECE1 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 2. Site Header & High-Visibility Logo */
+.site-header {
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 2px 14px rgba(40, 30, 10, 0.04) !important;
+}
+
+.site-header::after {
+  display: none !important;
+}
+
+.site-header .brand {
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+}
+
+.brand-logo-img, .site-header .brand img {
+  height: 64px !important;
+  width: auto !important;
+  max-width: 140px !important;
+  object-fit: contain !important;
+  display: block !important;
+  filter: drop-shadow(0 2px 8px rgba(0, 118, 245, 0.16)) !important;
+  transition: transform 0.2s ease, filter 0.2s ease !important;
+}
+
+.site-header .brand:hover img {
+  transform: scale(1.02) !important;
+  filter: drop-shadow(0 4px 14px rgba(0, 118, 245, 0.28)) !important;
+}
+
+.nav-links > li > a {
+  color: #1f2937 !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  transition: color 0.15s ease !important;
+}
+
+.nav-links > li > a:hover {
+  color: #0076F5 !important;
+}
+
+.nav-links > li > a.active, .menu-btn.active {
+  color: #0076F5 !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid #0076F5 !important;
+  background: transparent !important;
+}
+
+.btn-login {
+  border: 1px solid #0076F5 !important;
+  color: #0076F5 !important;
+  background: transparent !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 8px 22px !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-login:hover {
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 118, 245, 0.25) !important;
+}
+
+.btn-primary {
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 12px 26px !important;
+  box-shadow: 0 4px 14px rgba(0, 118, 245, 0.35) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-primary:hover {
+  background: #005ec5 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 18px rgba(0, 118, 245, 0.45) !important;
+}
+
+/* 3. Floating White Cards on Warm Cream Canvas */
+.card, .svc-card, .why-card, .plan:not(.featured), .fbox, .feature-card, .grid-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.07) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 20px rgba(50, 40, 20, 0.05) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+}
+
+.card:hover, .svc-card:hover, .why-card:hover, .plan:not(.featured):hover, .feature-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 16px 36px rgba(50, 40, 20, 0.09) !important;
+  border-color: rgba(0, 118, 245, 0.25) !important;
+}
+
+/* 4. Module & Feature Pill Badges */
+.card-badge, .badge, [class*="-badge"], .svc-badge {
+  background: #EFF6FF !important;
+  color: #0076F5 !important;
+  border: 1px solid rgba(0, 118, 245, 0.18) !important;
+  font-weight: 600 !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  border-radius: 999px !important;
+  padding: 4px 12px !important;
+}
+
+/* 5. PERFECTED PRICING CARDS & RECOMMENDED BADGE */
+.plan::before {
+  display: none !important;
+}
+
+.plan {
+  border-radius: 24px !important;
+  overflow: visible !important;
+}
+
+.plan .tag, .plan .plan-badge, .plan .badge-rec, .plan-popular-tag {
+  position: absolute !important;
+  top: -14px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  padding: 5px 18px !important;
+  border-radius: 999px !important;
+  box-shadow: 0 4px 14px rgba(0, 118, 245, 0.45) !important;
+  z-index: 10 !important;
+  white-space: nowrap !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.plan.featured {
+  background: #001831 !important;
+  color: #ffffff !important;
+  border: 2px solid #0076F5 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 24px 60px rgba(0, 24, 49, 0.35) !important;
+}
+
+.plan.featured h3 {
+  color: #ffffff !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+}
+
+.plan.featured .for {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.plan.featured .incl {
+  color: #38BDF8 !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  margin: 20px 0 14px !important;
+}
+
+.plan.featured ul li {
+  color: #ffffff !important;
+}
+
+.plan.featured li svg {
+  color: #38BDF8 !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.plan.featured .btn, .plan.featured .btn-gold {
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  padding: 12px 24px !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(0, 118, 245, 0.4) !important;
+  transition: all 0.2s ease !important;
+}
+
+.plan.featured .btn:hover, .plan.featured .btn-gold:hover {
+  background: #005ec5 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 118, 245, 0.55) !important;
+}
+
+/* 6. Step Cards (Sign Up, Set Up, Launch) */
+.steps {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 28px !important;
+}
+
+@media (max-width: 900px) {
+  .steps { grid-template-columns: 1fr !important; }
+}
+
+.step {
+  position: relative !important;
+  border-radius: 24px !important;
+  padding: 36px 30px !important;
+  text-align: center !important;
+  color: #ffffff !important;
+  overflow: hidden !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.step:nth-child(1) { background: linear-gradient(145deg, #5b73e8 0%, #3e52c8 100%) !important; }
+.step:nth-child(2) { background: linear-gradient(145deg, #0076f5 0%, #0056bd 100%) !important; }
+.step:nth-child(3) { background: linear-gradient(145deg, #0284c7 0%, #0369a1 100%) !important; }
+
+.step:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 48px rgba(0, 24, 70, 0.22) !important;
+}
+
+.step .num {
+  background: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  display: block !important;
+  margin: 0 auto 18px auto !important;
+  text-align: center !important;
+}
+
+.step .num::before {
+  counter-increment: sp !important;
+  content: "Step " counter(sp) !important;
+  display: inline-block !important;
+  padding: 5px 16px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.22) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+.step::after {
+  display: none !important;
+}
+
+.step .art {
+  width: 140px !important;
+  height: 105px !important;
+  margin: 0 auto 20px !important;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15)) !important;
+}
+
+.step h3 {
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  margin-bottom: 10px !important;
+}
+
+.step p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.55 !important;
+}
+
+/* 7. Marquee Ticker Band */
+.mq-modules {
+  background: #F4ECE1 !important;
+  padding: 16px 0 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.07) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07) !important;
+  margin-block: 40px !important;
+}
+
+.mq-modules li {
+  gap: 24px !important;
+  padding-right: 24px !important;
+  color: #334155 !important;
+  font-weight: 600 !important;
+  font-size: 1.05rem !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+}
+
+.mq-modules li:nth-child(even) { color: #0076F5 !important; }
+.mq-modules .star { width: 14px !important; height: 14px !important; color: #0076F5 !important; }
+
+/* 8. Signature Deep Navy Proud Section (#001831) */
+.wrap.proud, #why .wrap.proud, .proud {
+  background: #001831 !important;
+  border-radius: 32px !important;
+  padding: clamp(40px, 5vw, 64px) clamp(28px, 4vw, 56px) !important;
+  color: #ffffff !important;
+  display: grid !important;
+  grid-template-columns: 0.85fr 1.15fr !important;
+  gap: clamp(28px, 5vw, 64px) !important;
+  align-items: center !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 24px 60px rgba(0, 24, 49, 0.35) !important;
+  margin-block: 24px !important;
+}
+
+@media (max-width: 900px) {
+  .wrap.proud, #why .wrap.proud, .proud { grid-template-columns: 1fr !important; }
+}
+
+.wrap.proud h2, .proud h2 {
+  color: #ffffff !important;
+  font-size: clamp(2rem, 3.6vw, 2.8rem) !important;
+  font-weight: 600 !important;
+}
+
+.wrap.proud .lead, .proud .lead {
+  margin-top: 14px !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-size: 1.05rem !important;
+}
+
+.counts {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 20px !important;
+}
+
+@media (max-width: 600px) {
+  .counts { grid-template-columns: 1fr !important; }
+}
+
+.count {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  transition: transform 0.2s ease, background 0.2s ease !important;
+}
+
+.count:hover {
+  transform: translateY(-3px) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(0, 118, 245, 0.45) !important;
+}
+
+.count .n {
+  display: flex !important;
+  align-items: baseline !important;
+  font-size: clamp(2.4rem, 4vw, 3.4rem) !important;
+  font-weight: 700 !important;
+  background: linear-gradient(180deg, #A8C9FA 0%, #FFFFFF 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+.count h3 { margin-top: 10px !important; color: #ffffff !important; font-size: 1.15rem !important; }
+.count p { color: rgba(255, 255, 255, 0.65) !important; font-size: 0.92rem !important; }
+
+/* 9. Pre-Footer Royal Blue CTA Banner */
+.foot-cta {
+  background: linear-gradient(135deg, #0076F5 0%, #0052cc 100%) !important;
+  border-radius: 28px !important;
+  padding: clamp(36px, 5vw, 56px) clamp(28px, 5vw, 64px) !important;
+  color: #ffffff !important;
+  display: grid !important;
+  grid-template-columns: 1.2fr 0.8fr !important;
+  gap: 32px !important;
+  align-items: center !important;
+  box-shadow: 0 20px 50px rgba(0, 118, 245, 0.35) !important;
+  margin-block: 20px 48px !important;
+}
+
+@media (max-width: 900px) {
+  .foot-cta { grid-template-columns: 1fr !important; padding: 32px 24px !important; }
+}
+
+.foot-cta h2 { font-size: clamp(1.8rem, 3.2vw, 2.5rem) !important; color: #ffffff !important; }
+.foot-cta p { color: rgba(255, 255, 255, 0.88) !important; margin-top: 10px !important; font-size: 1.05rem !important; }
+.foot-cta .actions { display: flex !important; gap: 14px !important; justify-content: flex-end !important; }
+@media (max-width: 900px) {
+  .foot-cta .actions { justify-content: flex-start !important; }
+}
+
+.btn-white {
+  background: #ffffff !important;
+  color: #0076F5 !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  padding: 14px 28px !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-white:hover {
+  background: #f0f7ff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* 10. ULTRA-VISIBLE DEEP NAVY FOOTER (#001831) */
+footer, .site-footer {
+  background: #001831 !important;
+  color: #ffffff !important;
+  border-top: none !important;
+  padding-top: 60px !important;
+  padding-bottom: 40px !important;
+}
+
+footer a {
+  color: rgba(255, 255, 255, 0.78) !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease, transform 0.15s ease !important;
+}
+
+footer a:hover {
+  color: #38bdf8 !important;
+}
+
+footer nav h2, footer h2, footer h3, footer h4, .foot-head {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.98rem !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
+  opacity: 1 !important;
+}
+
+footer p, .foot-tagline, footer small, .foot-desc, footer .about {
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-size: 0.92rem !important;
+  line-height: 1.6 !important;
+}
+
+.foot-bottom, footer .bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+  padding-top: 24px !important;
+  margin-top: 48px !important;
+}
+
+.foot-bottom a {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.foot-bottom a:hover {
+  color: #ffffff !important;
+}
+
+.foot-social a, .social-links a, .foot-social-link {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  transition: all 0.2s ease !important;
+}
+
+.foot-social a:hover, .social-links a:hover, .foot-social-link:hover {
+  background: #0076F5 !important;
+  border-color: #0076F5 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 118, 245, 0.35) !important;
+}
+
+.foot-logo-img {
+  width: 100% !important;
+  max-width: 250px !important;
+  height: auto !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35) !important;
+  display: block !important;
+  margin-bottom: 14px !important;
+}
+
+/* 11. Floating Quick Contact Action Button */
+.floating-chat-btn {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  width: 56px !important;
+  height: 64px !important;
+  border-radius: 50% !important;
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 8px 24px rgba(0, 118, 245, 0.45) !important;
+  z-index: 999 !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.floating-chat-btn:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 12px 30px rgba(0, 118, 245, 0.6) !important;
+}
+
+
+
+/* ============================================================
+   SCORED MODERN SAAS DESIGN SYSTEM (PERFECTED)
+   - Warm Cream Body Canvas (#FAF6F0)
+   - Dedicated Header Logo (#scored-header-logo.png)
+   - Dedicated Footer Banner (#scored-footer-banner.png)
+   - High-Contrast Visible Dark Footer (#001831)
+   - Flawless Recommended Pricing Card (No Clipping Line, High Contrast)
+   ============================================================ */
+
+:root {
+  --cream: #FAF6F0 !important;
+  --cream-base: #F4ECE1 !important;
+  --cream-soft: #FBF8F3 !important;
+  --sky-soft: #FAF6F0 !important;
+  --white: #FFFFFF !important;
+  --text: #1a202c !important;
+}
+
+/* 1. Body & Canvas Warm Cream */
+body {
+  background-color: #FAF6F0 !important;
+  color: #1a202c !important;
+  font-family: var(--font, 'Inter', system-ui, sans-serif) !important;
+}
+
+main, 
+.section:not(.proud):not(.foot-cta-wrap),
+#services, #features, #pricing, #about, #why,
+.page-hero + .section {
+  background-color: transparent !important;
+}
+
+.section.tint, .tint, .bg-alt {
+  background-color: #F4ECE1 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 2. Site Header & High-Visibility Logo */
+.site-header {
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 2px 14px rgba(40, 30, 10, 0.04) !important;
+}
+
+.site-header::after {
+  display: none !important;
+}
+
+.site-header .brand {
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+}
+
+.brand-logo-img, .site-header .brand img {
+  height: 68px !important;
+  width: auto !important;
+  max-width: 140px !important;
+  object-fit: contain !important;
+  display: block !important;
+  filter: drop-shadow(0 2px 8px rgba(0, 118, 245, 0.16)) !important;
+  transition: transform 0.2s ease, filter 0.2s ease !important;
+}
+
+.site-header .brand:hover img {
+  transform: scale(1.02) !important;
+  filter: drop-shadow(0 4px 14px rgba(0, 118, 245, 0.28)) !important;
+}
+
+.nav-links > li > a {
+  color: #1f2937 !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  transition: color 0.15s ease !important;
+}
+
+.nav-links > li > a:hover {
+  color: #0076F5 !important;
+}
+
+.nav-links > li > a.active, .menu-btn.active {
+  color: #0076F5 !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid #0076F5 !important;
+  background: transparent !important;
+}
+
+.btn-login {
+  border: 1px solid #0076F5 !important;
+  color: #0076F5 !important;
+  background: transparent !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 8px 22px !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-login:hover {
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 118, 245, 0.25) !important;
+}
+
+.btn-primary {
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 12px 26px !important;
+  box-shadow: 0 4px 14px rgba(0, 118, 245, 0.35) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-primary:hover {
+  background: #005ec5 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 18px rgba(0, 118, 245, 0.45) !important;
+}
+
+/* 3. Floating White Cards on Warm Cream Canvas */
+.card, .svc-card, .why-card, .plan:not(.featured), .fbox, .feature-card, .grid-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.07) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 20px rgba(50, 40, 20, 0.05) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+}
+
+.card:hover, .svc-card:hover, .why-card:hover, .plan:not(.featured):hover, .feature-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 16px 36px rgba(50, 40, 20, 0.09) !important;
+  border-color: rgba(0, 118, 245, 0.25) !important;
+}
+
+/* 4. Module & Feature Pill Badges */
+.card-badge, .badge, [class*="-badge"], .svc-badge {
+  background: #EFF6FF !important;
+  color: #0076F5 !important;
+  border: 1px solid rgba(0, 118, 245, 0.18) !important;
+  font-weight: 600 !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  border-radius: 999px !important;
+  padding: 4px 12px !important;
+}
+
+/* 5. PERFECTED PRICING CARDS & RECOMMENDED BADGE */
+.plan::before {
+  display: none !important;
+}
+
+.plan {
+  border-radius: 24px !important;
+  overflow: visible !important;
+}
+
+.plan .tag, .plan .plan-badge, .plan .badge-rec, .plan-popular-tag {
+  position: absolute !important;
+  top: -14px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  padding: 5px 18px !important;
+  border-radius: 999px !important;
+  box-shadow: 0 4px 14px rgba(0, 118, 245, 0.45) !important;
+  z-index: 10 !important;
+  white-space: nowrap !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.plan.featured {
+  background: #001831 !important;
+  color: #ffffff !important;
+  border: 2px solid #0076F5 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 24px 60px rgba(0, 24, 49, 0.35) !important;
+}
+
+.plan.featured h3 {
+  color: #ffffff !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+}
+
+.plan.featured .for {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.plan.featured .incl {
+  color: #38BDF8 !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  margin: 20px 0 14px !important;
+}
+
+.plan.featured ul li {
+  color: #ffffff !important;
+}
+
+.plan.featured li svg {
+  color: #38BDF8 !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.plan.featured .btn, .plan.featured .btn-gold {
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  padding: 12px 24px !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(0, 118, 245, 0.4) !important;
+  transition: all 0.2s ease !important;
+}
+
+.plan.featured .btn:hover, .plan.featured .btn-gold:hover {
+  background: #005ec5 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 118, 245, 0.55) !important;
+}
+
+/* 6. Step Cards (Sign Up, Set Up, Launch) */
+.steps {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 28px !important;
+}
+
+@media (max-width: 900px) {
+  .steps { grid-template-columns: 1fr !important; }
+}
+
+.step {
+  position: relative !important;
+  border-radius: 24px !important;
+  padding: 36px 30px !important;
+  text-align: center !important;
+  color: #ffffff !important;
+  overflow: hidden !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.step:nth-child(1) { background: linear-gradient(145deg, #5b73e8 0%, #3e52c8 100%) !important; }
+.step:nth-child(2) { background: linear-gradient(145deg, #0076f5 0%, #0056bd 100%) !important; }
+.step:nth-child(3) { background: linear-gradient(145deg, #0284c7 0%, #0369a1 100%) !important; }
+
+.step:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 48px rgba(0, 24, 70, 0.22) !important;
+}
+
+.step .num {
+  background: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  display: block !important;
+  margin: 0 auto 18px auto !important;
+  text-align: center !important;
+}
+
+.step .num::before {
+  counter-increment: sp !important;
+  content: "Step " counter(sp) !important;
+  display: inline-block !important;
+  padding: 5px 16px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.22) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+.step::after {
+  display: none !important;
+}
+
+.step .art {
+  width: 140px !important;
+  height: 105px !important;
+  margin: 0 auto 20px !important;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15)) !important;
+}
+
+.step h3 {
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  margin-bottom: 10px !important;
+}
+
+.step p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.55 !important;
+}
+
+/* 7. Marquee Ticker Band */
+.mq-modules {
+  background: #F4ECE1 !important;
+  padding: 16px 0 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.07) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07) !important;
+  margin-block: 40px !important;
+}
+
+.mq-modules li {
+  gap: 24px !important;
+  padding-right: 24px !important;
+  color: #334155 !important;
+  font-weight: 600 !important;
+  font-size: 1.05rem !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+}
+
+.mq-modules li:nth-child(even) { color: #0076F5 !important; }
+.mq-modules .star { width: 14px !important; height: 14px !important; color: #0076F5 !important; }
+
+/* 8. Signature Deep Navy Proud Section (#001831) */
+.wrap.proud, #why .wrap.proud, .proud {
+  background: #001831 !important;
+  border-radius: 32px !important;
+  padding: clamp(40px, 5vw, 64px) clamp(28px, 4vw, 56px) !important;
+  color: #ffffff !important;
+  display: grid !important;
+  grid-template-columns: 0.85fr 1.15fr !important;
+  gap: clamp(28px, 5vw, 64px) !important;
+  align-items: center !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 24px 60px rgba(0, 24, 49, 0.35) !important;
+  margin-block: 24px !important;
+}
+
+@media (max-width: 900px) {
+  .wrap.proud, #why .wrap.proud, .proud { grid-template-columns: 1fr !important; }
+}
+
+.wrap.proud h2, .proud h2 {
+  color: #ffffff !important;
+  font-size: clamp(2rem, 3.6vw, 2.8rem) !important;
+  font-weight: 600 !important;
+}
+
+.wrap.proud .lead, .proud .lead {
+  margin-top: 14px !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-size: 1.05rem !important;
+}
+
+.counts {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 20px !important;
+}
+
+@media (max-width: 600px) {
+  .counts { grid-template-columns: 1fr !important; }
+}
+
+.count {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  transition: transform 0.2s ease, background 0.2s ease !important;
+}
+
+.count:hover {
+  transform: translateY(-3px) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(0, 118, 245, 0.45) !important;
+}
+
+.count .n {
+  display: flex !important;
+  align-items: baseline !important;
+  font-size: clamp(2.4rem, 4vw, 3.4rem) !important;
+  font-weight: 700 !important;
+  background: linear-gradient(180deg, #A8C9FA 0%, #FFFFFF 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+.count h3 { margin-top: 10px !important; color: #ffffff !important; font-size: 1.15rem !important; }
+.count p { color: rgba(255, 255, 255, 0.65) !important; font-size: 0.92rem !important; }
+
+/* 9. Pre-Footer Royal Blue CTA Banner */
+.foot-cta {
+  background: linear-gradient(135deg, #0076F5 0%, #0052cc 100%) !important;
+  border-radius: 28px !important;
+  padding: clamp(36px, 5vw, 56px) clamp(28px, 5vw, 64px) !important;
+  color: #ffffff !important;
+  display: grid !important;
+  grid-template-columns: 1.2fr 0.8fr !important;
+  gap: 32px !important;
+  align-items: center !important;
+  box-shadow: 0 20px 50px rgba(0, 118, 245, 0.35) !important;
+  margin-block: 20px 48px !important;
+}
+
+@media (max-width: 900px) {
+  .foot-cta { grid-template-columns: 1fr !important; padding: 32px 24px !important; }
+}
+
+.foot-cta h2 { font-size: clamp(1.8rem, 3.2vw, 2.5rem) !important; color: #ffffff !important; }
+.foot-cta p { color: rgba(255, 255, 255, 0.88) !important; margin-top: 10px !important; font-size: 1.05rem !important; }
+.foot-cta .actions { display: flex !important; gap: 14px !important; justify-content: flex-end !important; }
+@media (max-width: 900px) {
+  .foot-cta .actions { justify-content: flex-start !important; }
+}
+
+.btn-white {
+  background: #ffffff !important;
+  color: #0076F5 !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  padding: 14px 28px !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-white:hover {
+  background: #f0f7ff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* 10. ULTRA-VISIBLE DEEP NAVY FOOTER (#001831) */
+footer, .site-footer {
+  background: #001831 !important;
+  color: #ffffff !important;
+  border-top: none !important;
+  padding-top: 60px !important;
+  padding-bottom: 40px !important;
+}
+
+footer a {
+  color: rgba(255, 255, 255, 0.78) !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease, transform 0.15s ease !important;
+}
+
+footer a:hover {
+  color: #38bdf8 !important;
+}
+
+footer nav h2, footer h2, footer h3, footer h4, .foot-head {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.98rem !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
+  opacity: 1 !important;
+}
+
+footer p, /* tagline hidden */ footer small, .foot-desc, footer .about {
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-size: 0.92rem !important;
+  line-height: 1.6 !important;
+}
+
+.foot-bottom, footer .bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+  padding-top: 24px !important;
+  margin-top: 48px !important;
+}
+
+.foot-bottom a {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.foot-bottom a:hover {
+  color: #ffffff !important;
+}
+
+.foot-social a, .social-links a, .foot-social-link {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  transition: all 0.2s ease !important;
+}
+
+.foot-social a:hover, .social-links a:hover, .foot-social-link:hover {
+  background: #0076F5 !important;
+  border-color: #0076F5 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 118, 245, 0.35) !important;
+}
+
+.foot-tagline { display: none !important; }
+.foot-logo-img {
+  width: 100% !important;
+  max-width: 250px !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35) !important;
+  display: block !important;
+  margin-bottom: 14px !important;
+}
+
+/* 11. Floating Quick Contact Action Button */
+.floating-chat-btn {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  width: 56px !important;
+  height: 64px !important;
+  border-radius: 50% !important;
+  background: #0076F5 !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 8px 24px rgba(0, 118, 245, 0.45) !important;
+  z-index: 999 !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.floating-chat-btn:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 12px 30px rgba(0, 118, 245, 0.6) !important;
+}
+
 </style>
+  <link rel="stylesheet" href="assets/css/future-gen.css">
 </head>
 <body>
 <div class="ng-scroll-progress" aria-hidden="true"></div>
@@ -880,7 +2999,7 @@ h1,h2,h3,.brand b,.page-hero h1,.head h2,.vx-head h2,.count b,.card h3,.fbox h2,
   <div class="wrap">
     <nav class="nav" aria-label="Main">
       <a class="brand" href="index.html" aria-label="Scored - Writing history in edtech">
-        <img src="assets/scored-header-logo-transparent.png" alt="Scored" class="brand-logo-img" width="140" height="48">
+        <img src="assets/scored-header-logo.png" alt="Scored" class="brand-logo-img" width="150" height="52">
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -890,20 +3009,181 @@ h1,h2,h3,.brand b,.page-hero h1,.head h2,.vx-head h2,.count b,.card h3,.fbox h2,
           <button class="menu-btn" type="button" aria-expanded="false" aria-controls="features-menu">Features
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
           </button>
-          <div class="dropdown" id="features-menu" hidden>
-          <p class="dd-title">All features</p>
-          <ul class="dd-grid">
-            <li><a href="features.html#f-attendance" data-feat><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M9 15l2 2 4-4"/></svg></span><span><b>Attendance</b><small>Daily attendance with parent alerts</small></span></a></li>
-            <li><a href="features.html#f-payroll" data-feat><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 12 0v1M18 8h4M20 6v4"/></svg></span><span><b>Payroll</b><small>Salary slips, leave and staff records</small></span></a></li>
-            <li><a href="features.html#f-admissions" data-feat><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span><span><b>Admissions &amp; administration</b><small>Enquiry to enrolment, timetables, circulars</small></span></a></li>
-            <li><a href="features.html#f-cbt" data-feat><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span><b>CBT exams</b><small>Timed computer-based tests</small></span></a></li>
-            <li><a href="features.html#f-analysis" data-feat><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg></span><span><b>Analysis</b><small>Results by student, class and topic</small></span></a></li>
-            <li><a href="features.html#f-secure" data-feat><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span><b>Secure exam mode</b><small>Full-screen tests and role-based access</small></span></a></li>
-            <li><a href="features.html#f-fees" data-feat><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span><span><b>Fees &amp; receipts</b><small>Fee structures, payments and reminders</small></span></a></li>
-            <li><a href="features.html#f-parents" data-feat><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b>Parent communication</b><small>Circulars and alerts on any phone</small></span></a></li>
-            <li class="dd-foot"><a href="features.html">See all features <span aria-hidden="true">&rarr;</span></a><a class="btn btn-gold btn-sm" href="#demo" data-demo="demo">Access Demo</a></li>
-          </ul>
-        </div>
+                    <div class="dropdown mega-dropdown" id="features-menu" hidden>
+            <div class="mega-matrix-grid">
+              <!-- Column 1: Assessment Management -->
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#0076F5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="#0076F5" fill-opacity="0.12"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                      <line x1="16" y1="13" x2="8" y2="13"/>
+                      <line x1="16" y1="17" x2="8" y2="17"/>
+                      <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                  </div>
+                  <h4 class="mega-col-title">Assessment Management</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#comprehensive-features">Schedule Exam</a></li>
+                  <li><a href="features.html#comprehensive-features">Schedule Mock Test</a></li>
+                  <li><a href="features.html#comprehensive-features">Schedule Homework</a></li>
+                  <li><a href="features.html#comprehensive-features">Multilingual Assessment</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 2: Question Management -->
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#0076F5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="3" fill="#0076F5" fill-opacity="0.18"/>
+                      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                  </div>
+                  <h4 class="mega-col-title">Question Management</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#comprehensive-features">Create &amp; Manage Questions</a></li>
+                  <li><a href="features.html#comprehensive-features">Question Bank Management</a></li>
+                  <li><a href="features.html#comprehensive-features">Question Template Management</a></li>
+                  <li><a href="features.html#comprehensive-features">Import / Export Questions</a></li>
+                  <li><a href="features.html#comprehensive-features">Move Questions</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 3: Course & Batch Management -->
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#0076F5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z" fill="#0076F5" fill-opacity="0.15"/>
+                      <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                    </svg>
+                  </div>
+                  <h4 class="mega-col-title">Course &amp; Batch Management</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#comprehensive-features">Batch Management</a></li>
+                  <li><a href="features.html#comprehensive-features">Course Management</a></li>
+                  <li><a href="features.html#comprehensive-features">Batch Course Management</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 4: Reports & Analytics -->
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#0076F5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" fill="#0076F5" fill-opacity="0.12"/>
+                      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                      <line x1="9" y1="17" x2="9" y2="15"/>
+                      <line x1="12" y1="17" x2="12" y2="12"/>
+                      <line x1="15" y1="17" x2="15" y2="9"/>
+                    </svg>
+                  </div>
+                  <h4 class="mega-col-title">Reports &amp; Analytics</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#comprehensive-features">Exam Reports</a></li>
+                  <li><a href="features.html#comprehensive-features">Mock Test Reports</a></li>
+                  <li><a href="features.html#comprehensive-features">Homework Reports</a></li>
+                  <li><a href="features.html#comprehensive-features">Student Reports</a></li>
+                  <li><a href="features.html#comprehensive-features">Real-Time Monitoring &amp; Exam Control Board</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 5: AI & Automation -->
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#0076F5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="3" fill="#0076F5" fill-opacity="0.18"/>
+                      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+                      <polygon points="12 8 13.2 10.8 16 12 13.2 13.2 12 16 10.8 13.2 8 12 10.8 10.8 12 8" fill="#0076F5"/>
+                    </svg>
+                  </div>
+                  <h4 class="mega-col-title">AI &amp; Automation</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#comprehensive-features">AI-Powered Question Generator</a></li>
+                  <li><a href="features.html#comprehensive-features">Create Exams with AI Assistance</a></li>
+                  <li><a href="features.html#comprehensive-features">AI-Powered Face ID Image Capture</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 6: User Management -->
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#0076F5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" fill="#0076F5" fill-opacity="0.14"/>
+                      <circle cx="9" cy="7" r="4"/>
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                  </div>
+                  <h4 class="mega-col-title">User Management</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#comprehensive-features">Manage Users</a></li>
+                  <li><a href="features.html#comprehensive-features">User Groups</a></li>
+                  <li><a href="features.html#comprehensive-features">Guest User Management</a></li>
+                  <li><a href="features.html#comprehensive-features">SSO Integration (Google, Azure)</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 7: Security & Proctoring -->
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#0076F5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#0076F5" fill-opacity="0.14"/>
+                      <circle cx="12" cy="11" r="3"/>
+                      <path d="M12 14v3"/>
+                    </svg>
+                  </div>
+                  <h4 class="mega-col-title">Security &amp; Proctoring</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#comprehensive-features">Role-Based Access Control</a></li>
+                  <li><a href="features.html#comprehensive-features">Safe Exam Browser (SEB)</a></li>
+                  <li><a href="features.html#comprehensive-features">Advanced Proctoring (Face ID Image Capture + Manual Verification)</a></li>
+                  <li><a href="features.html#comprehensive-features">IP-Based Access Control</a></li>
+                  <li><a href="features.html#comprehensive-features">Monitor Live Exams (Admin Panel)</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 8: Notifications & Communication -->
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#0076F5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M11 5L6 9H2v6h4l5 4V5z" fill="#0076F5" fill-opacity="0.18"/>
+                      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                    </svg>
+                  </div>
+                  <h4 class="mega-col-title">Notifications &amp; Communication</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#comprehensive-features">Assessment Notifications</a></li>
+                  <li><a href="features.html#comprehensive-features">Account-Level Notifications</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mega-footer">
+              <div class="mega-footer-left">
+                <span class="mega-footer-tag">VirtualX Architecture</span>
+                <span style="color:#64748b;font-weight:500;">Scored powers 8 core academic dimensions with enterprise exam security</span>
+              </div>
+              <div class="mega-footer-right">
+                <a href="features.html" class="mega-footer-link">See All Features &rarr;</a>
+                <a href="#demo" data-demo="demo" class="btn btn-primary btn-sm">Access Demo</a>
+              </div>
+            </div>
+          </div>
         </li>
         <li><a href="services.html">Services</a></li>
         <li><a href="pricing.html" class="active" aria-current="page">Pricing</a></li>
@@ -921,16 +3201,43 @@ h1,h2,h3,.brand b,.page-hero h1,.head h2,.vx-head h2,.count b,.card h3,.fbox h2,
       <a href="about.html">About Us</a>
       <a href="why.html">Why Scored</a>
       <button class="m-feat" type="button" aria-expanded="false" aria-controls="m-feat-list">Features <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-      <div class="m-feat-list" id="m-feat-list" hidden>
-        <a class="sub" href="features.html#f-attendance" data-feat>Attendance</a>
-        <a class="sub" href="features.html#f-payroll" data-feat>Payroll</a>
-        <a class="sub" href="features.html#f-admissions" data-feat>Admissions &amp; administration</a>
-        <a class="sub" href="features.html#f-cbt" data-feat>CBT exams</a>
-        <a class="sub" href="features.html#f-analysis" data-feat>Analysis</a>
-        <a class="sub" href="features.html#f-secure" data-feat>Secure exam mode</a>
-        <a class="sub" href="features.html#f-fees" data-feat>Fees &amp; receipts</a>
-        <a class="sub" href="features.html#f-parents" data-feat>Parent communication</a>
-        <a class="sub" href="features.html">See all features</a>
+            <div class="m-feat-list" id="m-feat-list" hidden>
+        <div style="padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06);">
+          <strong style="color:#0076F5;display:block;font-size:0.85rem;text-transform:uppercase;margin-bottom:6px;">Assessment Management</strong>
+          <a class="sub" href="features.html#comprehensive-features">Schedule Exam</a>
+          <a class="sub" href="features.html#comprehensive-features">Schedule Mock Test</a>
+          <a class="sub" href="features.html#comprehensive-features">Schedule Homework</a>
+          <a class="sub" href="features.html#comprehensive-features">Multilingual Assessment</a>
+        </div>
+        <div style="padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06);">
+          <strong style="color:#0076F5;display:block;font-size:0.85rem;text-transform:uppercase;margin-bottom:6px;">Question Management</strong>
+          <a class="sub" href="features.html#comprehensive-features">Create &amp; Manage Questions</a>
+          <a class="sub" href="features.html#comprehensive-features">Question Bank Management</a>
+          <a class="sub" href="features.html#comprehensive-features">Import / Export Questions</a>
+        </div>
+        <div style="padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06);">
+          <strong style="color:#0076F5;display:block;font-size:0.85rem;text-transform:uppercase;margin-bottom:6px;">Course &amp; Batch Management</strong>
+          <a class="sub" href="features.html#comprehensive-features">Batch Management</a>
+          <a class="sub" href="features.html#comprehensive-features">Course Management</a>
+        </div>
+        <div style="padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06);">
+          <strong style="color:#0076F5;display:block;font-size:0.85rem;text-transform:uppercase;margin-bottom:6px;">Reports &amp; Analytics</strong>
+          <a class="sub" href="features.html#comprehensive-features">Exam &amp; Mock Test Reports</a>
+          <a class="sub" href="features.html#comprehensive-features">Real-Time Exam Control Board</a>
+        </div>
+        <div style="padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06);">
+          <strong style="color:#0076F5;display:block;font-size:0.85rem;text-transform:uppercase;margin-bottom:6px;">AI &amp; Automation</strong>
+          <a class="sub" href="features.html#comprehensive-features">AI-Powered Question Generator</a>
+          <a class="sub" href="features.html#comprehensive-features">AI-Powered Face ID Image Capture</a>
+        </div>
+        <div style="padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06);">
+          <strong style="color:#0076F5;display:block;font-size:0.85rem;text-transform:uppercase;margin-bottom:6px;">Security &amp; Proctoring</strong>
+          <a class="sub" href="features.html#comprehensive-features">Safe Exam Browser (SEB)</a>
+          <a class="sub" href="features.html#comprehensive-features">Advanced Proctoring</a>
+        </div>
+        <div style="padding: 12px 0;">
+          <a href="features.html" style="font-weight:700;color:#0076F5;">See all features &rarr;</a>
+        </div>
       </div>
       <a href="services.html">Services</a>
       <a href="pricing.html" class="active-page" aria-current="page">Pricing</a>
@@ -944,14 +3251,53 @@ h1,h2,h3,.brand b,.page-hero h1,.head h2,.vx-head h2,.count b,.card h3,.fbox h2,
     <div class="grid-bg" aria-hidden="true"></div>
     <div class="wrap">
       <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Pricing</span></nav>
-      <h1 id="page-title">Simple plans, <span class="hl">priced per student</span></h1>
+      <div class="future-badge dark"><span class="pulse-dot"></span> INSTITUTIONAL LICENSING &bull; PREDICTABLE SCALE</div>
+        <h1 id="page-title">Predictable Institutional Subscriptions. <span class="hl">Built for Transparent Scale.</span></h1>
       <p class="lede">Choose the modules your institute needs. Setup, migration, training and support are included in every plan.</p>
       <div class="hero-ctas">
         <a class="btn btn-gold" href="#demo" data-demo="get">Get a quote</a>
         <a class="btn btn-ghost-light" href="#demo" data-demo="demo">Access Demo</a>
       </div>
     </div>
-  </section>
+  
+    <section class="section" style="padding-top:10px;padding-bottom:10px;">
+      <div class="wrap">
+        <div class="roi-calculator-box">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+            <div>
+              <div class="future-badge"><span class="pulse-dot blue"></span> INTERACTIVE INSTITUTIONAL ROI SIMULATOR</div>
+              <h2 style="font-size:1.85rem;margin:0;">Calculate Your Campus Efficiency &amp; Savings</h2>
+            </div>
+            <span style="font-size:0.9rem;color:#64748b;">Instant estimation based on Indian academic operational averages</span>
+          </div>
+
+          <div class="roi-slider-container">
+            <div class="roi-slider-label">
+              <span style="font-weight:700;font-size:1.05rem;color:#0F2E5C;">Active Enrolled Student Body:</span>
+              <span class="roi-slider-val" id="roi-student-count">1,250 Students</span>
+            </div>
+            <input type="range" class="roi-slider" id="roi-students-slider" min="200" max="5000" step="50" value="1250">
+          </div>
+
+          <div class="roi-metrics-grid">
+            <div class="roi-metric-tile">
+              <span class="roi-tile-num" id="roi-paper-saved" style="color:#10B981;">₹1,75,000</span>
+              <span class="roi-tile-sub">Annual Paper, Printing &amp; Logistics Costs Saved</span>
+            </div>
+            <div class="roi-metric-tile">
+              <span class="roi-tile-num" id="roi-hours-reclaimed" style="color:#0076F5;">525 hrs/yr</span>
+              <span class="roi-tile-sub">Administrative &amp; Faculty Manual Work Reclaimed</span>
+            </div>
+            <div class="roi-metric-tile">
+              <span class="roi-tile-num" id="roi-grading-speed" style="color:#0F2E5C;">1.5s Instant</span>
+              <span class="roi-tile-sub">Batch Exam Machine Auto-Grading &amp; Analysis Velocity</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+</section>
   <section class="section tint" id="plans" aria-labelledby="plans-title">
     <div class="wrap">
       <div class="vx-head">
@@ -962,21 +3308,21 @@ h1,h2,h3,.brand b,.page-hero h1,.head h2,.vx-head h2,.count b,.card h3,.fbox h2,
       <div class="plans">
         <article class="plan ng-reveal">
           <h3>Essentials</h3>
-          <p class="for">For institutes moving off spreadsheets.</p>
+          <p class="for">For developing institutes modernizing administration and discarding spreadsheet disorder.</p>
           <p class="incl">AI-Enabled Institute management</p>
           <ul><li><svg aria-hidden="true"><use href="#check"/></svg>Admissions and administration</li><li><svg aria-hidden="true"><use href="#check"/></svg>Attendance and timetable</li><li><svg aria-hidden="true"><use href="#check"/></svg>Payroll, fees and receipts</li><li><svg aria-hidden="true"><use href="#check"/></svg>Parent communication</li></ul>
           <a class="btn btn-outline" href="#demo" data-demo="get" data-plan="Essentials">Get a quote</a>
         </article>
         <article class="plan featured">
           <span class="tag">Recommended</span><h3>Complete</h3>
-          <p class="for">AI-Enabled Institute management and CBT exams together.</p>
+          <p class="for">The definitive all-in-one flagship platform unifying campus governance with high-stakes CBT examinations and AI analytics.</p>
           <p class="incl">Everything in Essentials, plus</p>
           <ul><li><svg aria-hidden="true"><use href="#check"/></svg>CBT exams and secure exam mode</li><li><svg aria-hidden="true"><use href="#check"/></svg>Question bank and paper generator</li><li><svg aria-hidden="true"><use href="#check"/></svg>Auto-grading and analysis</li><li><svg aria-hidden="true"><use href="#check"/></svg>Board-format report cards</li></ul>
           <a class="btn btn-gold" href="#demo" data-demo="get" data-plan="Complete">Get a quote</a>
         </article>
         <article class="plan ng-reveal">
           <h3>Group</h3>
-          <p class="for">For trusts and chains with several branches.</p>
+          <p class="for">Centralized institutional governance, shared question repositories, and cross-branch analytics for multi-campus trusts.</p>
           <p class="incl">Everything in Complete, plus</p>
           <ul><li><svg aria-hidden="true"><use href="#check"/></svg>Multi-branch dashboard</li><li><svg aria-hidden="true"><use href="#check"/></svg>Shared question bank across branches</li><li><svg aria-hidden="true"><use href="#check"/></svg>Transport and multi-branch payroll</li><li><svg aria-hidden="true"><use href="#check"/></svg>Dedicated account manager</li></ul>
           <a class="btn btn-outline" href="#demo" data-demo="get" data-plan="Group">Talk to sales</a>
@@ -1099,7 +3445,7 @@ h1,h2,h3,.brand b,.page-hero h1,.head h2,.vx-head h2,.count b,.card h3,.fbox h2,
     <div class="foot-grid vx">
       <div class="foot-brand">
         <a class="foot-logo-card" href="index.html" aria-label="Scored home">
-          <img src="assets/scored-footer-logo.png" alt="Scored - Writing History in EdTech" class="foot-logo-img" width="160" height="160">
+          <img src="assets/scored-footer-banner.png" alt="Scored - Writing History in EdTech" class="foot-logo-img" width="240" height="96">
         </a>
         <p class="foot-tagline">Writing History in EdTech</p>
         <p class="about">Streamline your institute with Scored: AI-enabled institute management and CBT exams, all-in-one and ready to go.</p>
@@ -1140,6 +3486,22 @@ h1,h2,h3,.brand b,.page-hero h1,.head h2,.vx-head h2,.count b,.card h3,.fbox h2,
     <div class="foot-bottom">
       <span>Copyright © <span id="year">2026</span> Scored. All rights reserved.</span>
       <span><a href="#">Privacy policy</a> · <a href="#">Terms of service</a></span>
+
+      <div class="foot-socials">
+        <a href="#" class="foot-social-link yt" aria-label="YouTube" title="YouTube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="#" class="foot-social-link fb" aria-label="Facebook" title="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="#" class="foot-social-link ig" aria-label="Instagram" title="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="#" class="foot-social-link li" aria-label="LinkedIn" title="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+      </div>
+
     </div>
   </div>
 </footer>
@@ -1505,5 +3867,14 @@ h1,h2,h3,.brand b,.page-hero h1,.head h2,.vx-head h2,.count b,.card h3,.fbox h2,
   }
 })();
 </script>
+
+<!-- Floating Contact Button -->
+<a href="#demo" data-demo="demo" class="floating-chat-btn" aria-label="Book demo or get in touch" title="Book a free demo">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+  </svg>
+</a>
+
+  <script src="assets/js/future-simulations.js" defer></script>
 </body>
 </html>
