@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initBiometricStream();
   initMigrationSimulator();
   initRoiCalculator();
+  initEvalShowcase();
 });
 
 /* ------------------------------------------------------------
@@ -80,9 +81,11 @@ function initCbtSimulator() {
   const reviewBtn = simCard.querySelector(".cbt-btn-review");
   const clearBtn = simCard.querySelector(".cbt-btn-clear");
 
-  // Timer countdown simulation
+  // Timer countdown simulation with cleanup and viewport observer
   let secondsLeft = 44 * 60 + 28;
-  setInterval(function () {
+  let cbtTimerInterval = null;
+
+  function tickTimer() {
     if (secondsLeft > 0) {
       secondsLeft--;
       const m = Math.floor(secondsLeft / 60);
@@ -91,8 +94,39 @@ function initCbtSimulator() {
         timerVal.textContent =
           "00:" + (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
       }
+    } else if (cbtTimerInterval) {
+      clearInterval(cbtTimerInterval);
+      cbtTimerInterval = null;
     }
-  }, 1000);
+  }
+
+  function startCbtTimer() {
+    if (!cbtTimerInterval && secondsLeft > 0) {
+      cbtTimerInterval = setInterval(tickTimer, 1000);
+    }
+  }
+
+  function stopCbtTimer() {
+    if (cbtTimerInterval) {
+      clearInterval(cbtTimerInterval);
+      cbtTimerInterval = null;
+    }
+  }
+
+  if ("IntersectionObserver" in window) {
+    const cbtObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          startCbtTimer();
+        } else {
+          stopCbtTimer();
+        }
+      });
+    }, { threshold: 0.1 });
+    cbtObserver.observe(simCard);
+  } else {
+    startCbtTimer();
+  }
 
   // Render Palette Pills (20 total)
   if (paletteGrid) {
@@ -233,7 +267,9 @@ function initBiometricStream() {
   ];
 
   let punchIdx = 0;
-  setInterval(function () {
+  let bioStreamInterval = null;
+
+  function addBioPunch() {
     const item = mockPunches[punchIdx % mockPunches.length];
     punchIdx++;
 
@@ -259,10 +295,38 @@ function initBiometricStream() {
     `;
 
     feedList.insertBefore(row, feedList.firstChild);
-    if (feedList.children.length > 5) {
+    while (feedList.children.length > 5) {
       feedList.removeChild(feedList.lastChild);
     }
-  }, 4200);
+  }
+
+  function startBioStream() {
+    if (!bioStreamInterval) {
+      bioStreamInterval = setInterval(addBioPunch, 4200);
+    }
+  }
+
+  function stopBioStream() {
+    if (bioStreamInterval) {
+      clearInterval(bioStreamInterval);
+      bioStreamInterval = null;
+    }
+  }
+
+  if ("IntersectionObserver" in window) {
+    const bioObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          startBioStream();
+        } else {
+          stopBioStream();
+        }
+      });
+    }, { threshold: 0.1 });
+    bioObserver.observe(feedList);
+  } else {
+    startBioStream();
+  }
 }
 
 /* ------------------------------------------------------------
@@ -343,32 +407,126 @@ function initRoiCalculator() {
 
 
 /* ------------------------------------------------------------
-   5. AI-Powered Evaluations Video Showcase Tabs
+   5. AI-Powered Evaluations Video Showcase Tabs (Auto-cycling 3-5s)
    ------------------------------------------------------------ */
 function initEvalShowcase() {
-  const showcase = document.querySelector(".eval-showcase-wrap");
-  if (!showcase) return;
+  const showcases = document.querySelectorAll(".eval-showcase-wrap");
+  if (!showcases.length) return;
 
-  const tabCards = showcase.querySelectorAll(".eval-tab-card");
-  const screens = showcase.querySelectorAll(".eval-screen-content");
+  const ROTATION_INTERVAL = 4000; // 4 seconds auto-switch (within 3-5 sec)
 
-  tabCards.forEach(function (card) {
-    card.addEventListener("click", function () {
-      const target = card.getAttribute("data-target");
+  showcases.forEach(function (showcase) {
+    const tabCards = Array.from(showcase.querySelectorAll(".eval-tab-card"));
+    const screens = Array.from(showcase.querySelectorAll(".eval-screen-content"));
+    if (!tabCards.length || !screens.length) return;
+
+    // Ensure progress bar element exists in each tab card
+    tabCards.forEach(function (card) {
+      if (!card.querySelector(".eval-tab-progress")) {
+        const prog = document.createElement("div");
+        prog.className = "eval-tab-progress";
+        card.appendChild(prog);
+      }
+    });
+
+    let currentIndex = tabCards.findIndex((c) => c.classList.contains("active"));
+    if (currentIndex === -1) currentIndex = 0;
+
+    let timerId = null;
+    let isHovered = false;
+    let isVisible = true;
+
+    function switchTab(index) {
+      currentIndex = index;
+      const card = tabCards[currentIndex];
+      const target = card ? card.getAttribute("data-target") : null;
       if (!target) return;
 
-      tabCards.forEach((c) => c.classList.remove("active"));
+      // Update tabs and reset progress bar animation
+      tabCards.forEach(function (c) {
+        c.classList.remove("active");
+        const p = c.querySelector(".eval-tab-progress");
+        if (p) {
+          p.style.animation = "none";
+          void p.offsetWidth; // force reflow
+          p.style.animation = "";
+        }
+      });
       card.classList.add("active");
 
+      // Update screen content with smooth entrance
       screens.forEach((s) => s.classList.remove("active"));
       const activeScreen = showcase.querySelector("#" + target);
       if (activeScreen) {
         activeScreen.classList.add("active");
       }
+    }
+
+    function nextTab() {
+      if (isHovered || !isVisible) return;
+      const nextIndex = (currentIndex + 1) % tabCards.length;
+      switchTab(nextIndex);
+    }
+
+    function startTimer() {
+      stopTimer();
+      timerId = setInterval(nextTab, ROTATION_INTERVAL);
+    }
+
+    function stopTimer() {
+      if (timerId) {
+        clearInterval(timerId);
+        timerId = null;
+      }
+    }
+
+    function resetTimer() {
+      stopTimer();
+      startTimer();
+    }
+
+    // Manual click override
+    tabCards.forEach(function (card, idx) {
+      card.addEventListener("click", function () {
+        switchTab(idx);
+        resetTimer();
+      });
     });
+
+    // Pause on hover so user can interact/read freely
+    const containerCard = showcase.querySelector(".eval-container-card") || showcase;
+    containerCard.addEventListener("mouseenter", function () {
+      isHovered = true;
+      stopTimer();
+    });
+
+    containerCard.addEventListener("mouseleave", function () {
+      isHovered = false;
+      startTimer();
+    });
+
+    // IntersectionObserver to pause when off-screen
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            isVisible = entry.isIntersecting;
+            if (isVisible && !isHovered) {
+              startTimer();
+            } else {
+              stopTimer();
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      observer.observe(showcase);
+    } else {
+      startTimer();
+    }
+
+    // Activate initial tab and start timer
+    switchTab(currentIndex);
+    startTimer();
   });
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  initEvalShowcase();
-});
