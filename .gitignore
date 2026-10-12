@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.py[cod]
+*$py.class
+
+# Test screenshots
+assets/verify_*.png
+assets/preview_*.png
+assets/test_*.png
+assets/media_*.png
+
+# Playwright
+node_modules/
+playwright-report/
+test-results/
+testcase/playwright-report/
+testcase/test-results/
+blob-report/
+
+# System / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

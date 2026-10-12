@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.scored.co.in/sitemap.xml
+
+# Scored — AI-Enabled Institute Management & CBT Exam Software
+# https://www.scored.co.in
