@@ -25,10 +25,11 @@ html:not(.js) .ng-reveal{opacity:1 !important;transform:none !important}
 /* Jumps to a module or a contact anchor land below the sticky header, not under it. */
 [id]{scroll-margin-top:96px}
 
-/* The header logo is a wide mark now; keep its height and let the width follow. */
-.brand-logo-img,.site-header .brand img{max-width:220px !important;height:52px !important}
-@media (max-width:768px){.brand-logo-img,.site-header .brand img{height:42px !important;max-width:150px !important}}
-.foot-logo-img{width:170px !important;height:auto !important;max-height:none !important;max-width:170px !important;aspect-ratio:auto !important}
+/* The header logo is the company banner, waves and all: keep its height and let the width follow. */
+.brand-logo-img,.site-header .brand img{height:68px !important;width:auto !important;max-width:none !important;border-radius:10px !important;filter:none !important}
+@media (max-width:768px){.brand-logo-img,.site-header .brand img{height:56px !important}}
+/* The footer logo is the square company logo, as supplied. */
+.foot-logo-img{width:170px !important;height:auto !important;max-height:none !important;max-width:170px !important;aspect-ratio:auto !important;border-radius:12px !important}
 
 /* Footer contact column */
 .foot-contact address{font-style:normal;display:grid;gap:10px;line-height:1.5}
@@ -66,3 +67,13 @@ html:not(.js) .ng-reveal{opacity:1 !important;transform:none !important}
 .vx-hero .hero-center{padding-bottom:calc(clamp(52px,6.5vw,92px) + clamp(40px,7vw,104px)) !important}
 .page-hero{padding-bottom:calc(clamp(56px,7vw,88px) + clamp(36px,6vw,90px)) !important}
 .vx-hero .wrap,.page-hero .wrap{position:relative;z-index:1}
+
+/* Phones: in the attendance feed mock-up a wrapped name ran into the class beside it. Stack them instead. */
+@media (max-width:600px){
+  .bio-user-cell > div{font-size:0;line-height:1.25}
+  .bio-user-cell > div b{display:block;font-size:.82rem}
+  .bio-user-cell > div small{display:block;font-size:.72rem;margin-top:2px}
+}
+
+/* Phones: the floating contact button must not sit on the footer's last line. */
+@media (max-width:768px){footer{padding-bottom:96px}}
