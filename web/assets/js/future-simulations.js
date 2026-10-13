@@ -485,11 +485,35 @@ function initEvalShowcase() {
       startTimer();
     }
 
-    // Manual click override
+    // On a phone the tabs sit below the screen they change, so a tap changed something off-screen.
+    // Bring the screen into view, and hold the rotation long enough to read it (touch has no hover pause).
+    function revealScreen() {
+      const screen = showcase.querySelector(".eval-screen-content.active");
+      const frame = screen ? (screen.closest(".eval-screen-stage") || screen.parentElement) : null;
+      if (!frame) return;
+      const header = document.querySelector(".site-header");
+      const offset = (header ? header.getBoundingClientRect().height : 0) + 12;
+      const top = frame.getBoundingClientRect().top;
+      if (top < offset || top > window.innerHeight * 0.5) {
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollTo({ top: window.scrollY + top - offset, behavior: reduce ? "auto" : "smooth" });
+      }
+    }
+
+    let holdId = null;
     tabCards.forEach(function (card, idx) {
-      card.addEventListener("click", function () {
+      card.setAttribute("role", "button");
+      card.setAttribute("tabindex", "0");
+      function choose() {
         switchTab(idx);
-        resetTimer();
+        stopTimer();
+        clearTimeout(holdId);
+        holdId = setTimeout(function () { holdId = null; if (!isHovered && isVisible) startTimer(); }, 15000);
+        revealScreen();
+      }
+      card.addEventListener("click", choose);
+      card.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); choose(); }
       });
     });
 
@@ -502,7 +526,7 @@ function initEvalShowcase() {
 
     containerCard.addEventListener("mouseleave", function () {
       isHovered = false;
-      startTimer();
+      if (!holdId) startTimer();
     });
 
     // IntersectionObserver to pause when off-screen
@@ -511,7 +535,7 @@ function initEvalShowcase() {
         function (entries) {
           entries.forEach(function (entry) {
             isVisible = entry.isIntersecting;
-            if (isVisible && !isHovered) {
+            if (isVisible && !isHovered && !holdId) {
               startTimer();
             } else {
               stopTimer();

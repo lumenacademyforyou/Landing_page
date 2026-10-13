@@ -51,3 +51,18 @@ html:not(.js) .ng-reveal{opacity:1 !important;transform:none !important}
 .contact-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px}
 @media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
 @media (max-width:600px){.contact-actions{flex-direction:column}.contact-actions .btn{width:100%;justify-content:center}}
+
+/* Hero: warm white type with a soft warm glow, so the words lift off the video and the navy. */
+.vx-hero,.page-hero{--warm-white:#FFF7E8}
+.vx-hero h1,.page-hero h1{color:var(--warm-white) !important;
+  text-shadow:0 0 28px rgba(255,236,204,.5),0 0 3px rgba(255,247,232,.6),0 3px 14px rgba(6,22,52,.55) !important}
+.vx-hero .lede,.page-hero .lede,.vx-hero .hero-points li,.page-hero .crumbs span{color:rgba(255,247,232,.94) !important;
+  text-shadow:0 0 14px rgba(255,236,204,.28),0 2px 8px rgba(6,22,52,.5) !important}
+.vx-hero .hl,.page-hero .hl{text-shadow:0 0 24px rgba(255,214,150,.5),0 3px 14px rgba(6,22,52,.5) !important}
+
+/* Hero: the blue waves and gold line of the company banner, flowing into the section below. */
+.hero-wave{position:absolute;left:0;right:0;bottom:-1px;height:clamp(56px,9vw,132px);z-index:0;pointer-events:none;line-height:0}
+.hero-wave svg{display:block;width:100%;height:100%}
+.vx-hero .hero-center{padding-bottom:calc(clamp(52px,6.5vw,92px) + clamp(40px,7vw,104px)) !important}
+.page-hero{padding-bottom:calc(clamp(56px,7vw,88px) + clamp(36px,6vw,90px)) !important}
+.vx-hero .wrap,.page-hero .wrap{position:relative;z-index:1}
