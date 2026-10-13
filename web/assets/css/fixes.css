@@ -1,0 +1,53 @@
+/* Loaded after main.css and future-gen.css on every page: mobile layout fixes, the contact
+   details, and a scroll reveal that cannot leave a page blank. */
+
+/* Long button labels wrapped off the right edge of narrow phones instead of onto a second line. */
+.btn{white-space:normal;max-width:100%;text-align:center}
+@media (max-width:600px){
+  .hero-ctas{flex-direction:column;align-items:stretch}
+  .hero-ctas .btn{width:100%;justify-content:center}
+  .foot-cta{padding:28px 22px}
+  .foot-cta .hero-ctas{justify-content:stretch}
+  #btn-start-migration{width:100%;padding:14px 20px !important}
+  .mobile-menu-cta .btn{text-align:center}
+}
+
+/* The home hero's copy sat against the left edge of wide screens; line it up with the header instead. */
+.vx-hero .hero-center{margin-left:max(0px,calc((100% - var(--wrap)) / 2)) !important}
+
+/* Grids with a fixed minimum column pushed the page sideways on phones narrower than the minimum. */
+.services-cards{grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr))}
+.steps{grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))}
+
+/* Content stays visible unless the reveal script is there to bring it in. */
+html:not(.js) .ng-reveal{opacity:1 !important;transform:none !important}
+
+/* Jumps to a module or a contact anchor land below the sticky header, not under it. */
+[id]{scroll-margin-top:96px}
+
+/* The header logo is a wide mark now; keep its height and let the width follow. */
+.brand-logo-img,.site-header .brand img{max-width:220px !important;height:52px !important}
+@media (max-width:768px){.brand-logo-img,.site-header .brand img{height:42px !important;max-width:150px !important}}
+.foot-logo-img{width:170px !important;height:auto !important;max-height:none !important;max-width:170px !important;aspect-ratio:auto !important}
+
+/* Footer contact column */
+.foot-contact address{font-style:normal;display:grid;gap:10px;line-height:1.5}
+.foot-contact a{overflow-wrap:break-word}
+@media (max-width:900px){.foot-contact{grid-column:1/-1}}
+/* The outline button was royal blue on the navy band, too dark to read. */
+.foot-cta .btn-outline{color:#fff !important;border-color:rgba(255,255,255,.65) !important;background:transparent !important}
+.foot-cta .btn-outline:hover{background:rgba(255,255,255,.1) !important}
+.foot-socials{display:flex;gap:10px}
+.foot-social-link.wa:hover{color:#25D366}
+
+/* Contact page */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.contact-card{display:flex;flex-direction:column;gap:8px;padding:26px 24px;background:#fff;border:1px solid var(--line,#E2E8F0);border-radius:18px;
+  box-shadow:0 10px 30px -18px rgba(15,47,95,.35);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s}
+.contact-card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -18px rgba(15,47,95,.45)}
+.contact-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:rgba(21,84,201,.08);color:var(--scored-royal,#1554C9)}
+.contact-label{font-weight:700;color:var(--navy,#0B2545);font-size:1.05rem}
+.contact-value{color:var(--muted,#475569);line-height:1.55;overflow-wrap:anywhere}
+.contact-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:600px){.contact-actions{flex-direction:column}.contact-actions .btn{width:100%;justify-content:center}}
