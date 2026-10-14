@@ -259,11 +259,11 @@ function initBiometricStream() {
   if (!feedList) return;
 
   const mockPunches = [
-    { name: "Ananya Iyer", class: "Grade 9-A", type: "RFID Turnstile Gate 1", status: "On-Time" },
-    { name: "Devansh Joshi", class: "Grade 11-PCM", type: "Biometric Terminal Lab", status: "On-Time" },
-    { name: "Sneha Reddy", class: "Grade 10-C", type: "Facial Recognition Gate 2", status: "On-Time" },
-    { name: "Kabir Mehta", class: "Grade 8-B", type: "Smart Card Tap Main Hub", status: "On-Time" },
-    { name: "Pooja Hegde", class: "Grade 12-PCB", type: "Biometric Terminal Gate 1", status: "On-Time" }
+    { name: "Ananya Iyer", class: "Class 9-A", type: "RFID Turnstile Gate 1", status: "On-Time" },
+    { name: "Devansh Joshi", class: "Class 11-PCM", type: "Biometric Terminal Lab", status: "On-Time" },
+    { name: "Sneha Reddy", class: "Class 10-C", type: "Facial Recognition Gate 2", status: "On-Time" },
+    { name: "Kabir Mehta", class: "Class 8-B", type: "Smart Card Tap Main Hub", status: "On-Time" },
+    { name: "Pooja Hegde", class: "Class 12-PCB", type: "Biometric Terminal Gate 1", status: "On-Time" }
   ];
 
   let punchIdx = 0;

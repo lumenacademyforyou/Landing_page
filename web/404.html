@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>404 — Page Not Found | Scored IT Solutions</title>
+  <title>404 — Page Not Found | Scored</title>
   <meta name="description" content="The page you are looking for does not exist or has been moved. Explore Scored — AI-Enabled Institute Management & CBT Examination System.">
   <meta name="author" content="ScorEd IT Solutions">
   <meta name="robots" content="noindex, follow">
@@ -132,65 +132,260 @@
   <a class="skip" href="#main">Skip to main content</a>
 
   <!-- Header -->
-  <header class="site-header" role="banner">
-    <div class="wrap head-wrap">
+  <header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
       <a class="brand" href="index.html" aria-label="Scored — Writing History in EdTech">
         <img src="assets/scored-header-logo-new.png" alt="Scored — Writing History in EdTech" class="brand-logo-img" width="182" height="62">
       </a>
-      <nav class="nav" aria-label="Primary navigation">
-        <div class="has-menu">
-          <button class="nav-link menu-btn" aria-expanded="false" aria-controls="features-menu" type="button">
-            Features
-            <svg class="caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="why.html">Why Scored</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" type="button" aria-expanded="false" aria-controls="features-menu">Features
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
           </button>
-          <div id="features-menu" class="mega-menu" hidden>
-            <div class="mega-grid">
-              <a class="mega-item" href="features.html#f-cbt">
-                <span class="m-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
-                <div><b>CBT Examination Engine</b><p>Anti-cheat proctoring, offline sync, automated grading</p></div>
-              </a>
-              <a class="mega-item" href="features.html#f-attendance">
-                <span class="m-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg></span>
-                <div><b>Biometric &amp; RFID Attendance</b><p>Multi-terminal sync with instant parent alerts</p></div>
-              </a>
-              <a class="mega-item" href="features.html#f-payroll">
-                <span class="m-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
-                <div><b>Staff Payroll &amp; Compliance</b><p>EPF, ESIC, leave tracking and direct bank transfers</p></div>
-              </a>
-              <a class="mega-item" href="features.html#f-admissions">
-                <span class="m-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>
-                <div><b>Student Lifecycle &amp; Admissions</b><p>Paperless inquiry-to-enrollment workflow</p></div>
-              </a>
+                    <div class="dropdown mega-dropdown" id="features-menu" hidden>
+            <div class="mega-matrix-grid">
+              <!-- Column 1: Assessment Management -->
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--scored-royal)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="var(--scored-royal)" fill-opacity="0.12"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                      <line x1="16" y1="13" x2="8" y2="13"/>
+                      <line x1="16" y1="17" x2="8" y2="17"/>
+                      <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                  </div>
+                  <h4 class="mega-col-title">Assessment Management</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#comprehensive-features">Schedule Exam</a></li>
+                  <li><a href="features.html#comprehensive-features">Schedule Mock Test</a></li>
+                  <li><a href="features.html#comprehensive-features">Schedule Homework</a></li>
+                  <li><a href="features.html#comprehensive-features">Multilingual Assessment</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 2: Question Management -->
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--scored-royal)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="3" fill="var(--scored-royal)" fill-opacity="0.18"/>
+                      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                  </div>
+                  <h4 class="mega-col-title">Question Management</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#comprehensive-features">Create &amp; Manage Questions</a></li>
+                  <li><a href="features.html#comprehensive-features">Question Bank Management</a></li>
+                  <li><a href="features.html#comprehensive-features">Question Template Management</a></li>
+                  <li><a href="features.html#comprehensive-features">Import / Export Questions</a></li>
+                  <li><a href="features.html#comprehensive-features">Move Questions</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 3: Course & Batch Management -->
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--scored-royal)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z" fill="var(--scored-royal)" fill-opacity="0.15"/>
+                      <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                    </svg>
+                  </div>
+                  <h4 class="mega-col-title">Course &amp; Batch Management</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#comprehensive-features">Batch Management</a></li>
+                  <li><a href="features.html#comprehensive-features">Course Management</a></li>
+                  <li><a href="features.html#comprehensive-features">Batch Course Management</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 4: Reports & Analytics -->
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--scored-royal)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" fill="var(--scored-royal)" fill-opacity="0.12"/>
+                      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                      <line x1="9" y1="17" x2="9" y2="15"/>
+                      <line x1="12" y1="17" x2="12" y2="12"/>
+                      <line x1="15" y1="17" x2="15" y2="9"/>
+                    </svg>
+                  </div>
+                  <h4 class="mega-col-title">Reports &amp; Analytics</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#comprehensive-features">Exam Reports</a></li>
+                  <li><a href="features.html#comprehensive-features">Mock Test Reports</a></li>
+                  <li><a href="features.html#comprehensive-features">Homework Reports</a></li>
+                  <li><a href="features.html#comprehensive-features">Student Reports</a></li>
+                  <li><a href="features.html#comprehensive-features">Real-Time Monitoring &amp; Exam Control Board</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 5: AI & Automation -->
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--scored-royal)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="3" fill="var(--scored-royal)" fill-opacity="0.18"/>
+                      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+                      <polygon points="12 8 13.2 10.8 16 12 13.2 13.2 12 16 10.8 13.2 8 12 10.8 10.8 12 8" fill="var(--scored-royal)"/>
+                    </svg>
+                  </div>
+                  <h4 class="mega-col-title">AI &amp; Automation</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#comprehensive-features">AI-Powered Question Generator</a></li>
+                  <li><a href="features.html#comprehensive-features">Create Exams with AI Assistance</a></li>
+                  <li><a href="features.html#comprehensive-features">AI-Powered Face ID Image Capture</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 6: User Management -->
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--scored-royal)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" fill="var(--scored-royal)" fill-opacity="0.14"/>
+                      <circle cx="9" cy="7" r="4"/>
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                  </div>
+                  <h4 class="mega-col-title">User Management</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#comprehensive-features">Manage Users</a></li>
+                  <li><a href="features.html#comprehensive-features">User Groups</a></li>
+                  <li><a href="features.html#comprehensive-features">Guest User Management</a></li>
+                  <li><a href="features.html#comprehensive-features">SSO Integration (Google, Azure)</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 7: Security & Proctoring -->
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--scored-royal)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="var(--scored-royal)" fill-opacity="0.14"/>
+                      <circle cx="12" cy="11" r="3"/>
+                      <path d="M12 14v3"/>
+                    </svg>
+                  </div>
+                  <h4 class="mega-col-title">Security &amp; Proctoring</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#comprehensive-features">Role-Based Access Control</a></li>
+                  <li><a href="features.html#comprehensive-features">Safe Exam Browser (SEB)</a></li>
+                  <li><a href="features.html#comprehensive-features">Advanced Proctoring (Face ID Image Capture + Manual Verification)</a></li>
+                  <li><a href="features.html#comprehensive-features">IP-Based Access Control</a></li>
+                  <li><a href="features.html#comprehensive-features">Monitor Live Exams (Admin Panel)</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 8: Notifications & Communication -->
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--scored-royal)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M11 5L6 9H2v6h4l5 4V5z" fill="var(--scored-royal)" fill-opacity="0.18"/>
+                      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                    </svg>
+                  </div>
+                  <h4 class="mega-col-title">Notifications &amp; Communication</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#comprehensive-features">Assessment Notifications</a></li>
+                  <li><a href="features.html#comprehensive-features">Account-Level Notifications</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mega-footer">
+              <div class="mega-footer-left">
+                <span class="mega-footer-tag">Scored Architecture</span>
+                <span style="color:#64748b;font-weight:500;">Scored powers 8 core academic dimensions with enterprise exam security</span>
+              </div>
+              <div class="mega-footer-right">
+                <a href="features.html" class="mega-footer-link">See All Features &rarr;</a>
+                <a href="features.html" class="btn btn-primary btn-sm">See All Features &rarr;</a>
+              </div>
             </div>
           </div>
-        </div>
-        <a class="nav-link" href="services.html">Services</a>
-        <a class="nav-link" href="pricing.html">Pricing</a>
-        <a class="nav-link" href="why.html">Why Scored</a>
-        <a class="nav-link" href="about.html">About</a>
-      </nav>
-      <div class="head-actions">
-        <a class="btn btn-outline" href="mailto:hello@scored.co.in">Contact Us</a>
-        <a class="btn btn-primary" href="index.html#evaluations-showcase">Live Demo</a>
+        </li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a class="btn btn-primary btn-sm" href="features.html">Explore Platform</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" type="button">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
       <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a class="sub" href="features.html#f-cbt">CBT Exams</a>
-      <a class="sub" href="features.html#f-attendance">Attendance</a>
-      <a class="sub" href="features.html#f-payroll">Payroll</a>
-      <a class="sub" href="features.html#f-admissions">Admissions</a>
+      <a href="about.html">About Us</a>
+      <a href="why.html">Why Scored</a>
+      <button class="m-feat" type="button" aria-expanded="false" aria-controls="m-feat-list">Features <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+            <div class="m-feat-list" id="m-feat-list" hidden>
+        <div style="padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06);">
+          <strong style="color:var(--scored-royal);display:block;font-size:0.85rem;text-transform:uppercase;margin-bottom:6px;">Assessment Management</strong>
+          <a class="sub" href="features.html#comprehensive-features">Schedule Exam</a>
+          <a class="sub" href="features.html#comprehensive-features">Schedule Mock Test</a>
+          <a class="sub" href="features.html#comprehensive-features">Schedule Homework</a>
+          <a class="sub" href="features.html#comprehensive-features">Multilingual Assessment</a>
+        </div>
+        <div style="padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06);">
+          <strong style="color:var(--scored-royal);display:block;font-size:0.85rem;text-transform:uppercase;margin-bottom:6px;">Question Management</strong>
+          <a class="sub" href="features.html#comprehensive-features">Create &amp; Manage Questions</a>
+          <a class="sub" href="features.html#comprehensive-features">Question Bank Management</a>
+          <a class="sub" href="features.html#comprehensive-features">Import / Export Questions</a>
+        </div>
+        <div style="padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06);">
+          <strong style="color:var(--scored-royal);display:block;font-size:0.85rem;text-transform:uppercase;margin-bottom:6px;">Course &amp; Batch Management</strong>
+          <a class="sub" href="features.html#comprehensive-features">Batch Management</a>
+          <a class="sub" href="features.html#comprehensive-features">Course Management</a>
+        </div>
+        <div style="padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06);">
+          <strong style="color:var(--scored-royal);display:block;font-size:0.85rem;text-transform:uppercase;margin-bottom:6px;">Reports &amp; Analytics</strong>
+          <a class="sub" href="features.html#comprehensive-features">Exam &amp; Mock Test Reports</a>
+          <a class="sub" href="features.html#comprehensive-features">Real-Time Exam Control Board</a>
+        </div>
+        <div style="padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06);">
+          <strong style="color:var(--scored-royal);display:block;font-size:0.85rem;text-transform:uppercase;margin-bottom:6px;">AI &amp; Automation</strong>
+          <a class="sub" href="features.html#comprehensive-features">AI-Powered Question Generator</a>
+          <a class="sub" href="features.html#comprehensive-features">AI-Powered Face ID Image Capture</a>
+        </div>
+        <div style="padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06);">
+          <strong style="color:var(--scored-royal);display:block;font-size:0.85rem;text-transform:uppercase;margin-bottom:6px;">Security &amp; Proctoring</strong>
+          <a class="sub" href="features.html#comprehensive-features">Safe Exam Browser (SEB)</a>
+          <a class="sub" href="features.html#comprehensive-features">Advanced Proctoring</a>
+        </div>
+        <div style="padding: 12px 0;">
+          <a href="features.html" style="font-weight:700;color:var(--scored-royal);">See all features &rarr;</a>
+        </div>
+      </div>
       <a href="services.html">Services</a>
       <a href="pricing.html">Pricing</a>
-      <a href="why.html">Why Scored</a>
-      <a href="about.html">About</a>
+      
+    
       <a href="mailto:hello@scored.co.in">Contact Us</a>
-    </nav>
-  </header>
+          <div class="mobile-menu-cta" style="padding-top:14px;margin-top:14px;border-top:1px solid rgba(219,230,242,.75);">
+        <a class="btn btn-primary" href="features.html" style="width:100%;justify-content:center;color:#fff !important;border-radius:10px;">Explore Platform &rarr;</a>
+      </div>
+    </div>
+  </div>
+</header>
 
   <main id="main">
     <section class="error-hero">
@@ -207,11 +402,11 @@
           </a>
           <a class="error-card" href="features.html">
             <h4>⚡ Platform Features</h4>
-            <p>Explore CBT, Biometric attendance, Payroll, and ERP modules.</p>
+            <p>Explore CBT exams, attendance, payroll and admissions modules.</p>
           </a>
           <a class="error-card" href="pricing.html">
-            <h4>💎 Transparent Pricing</h4>
-            <p>Compare Core, Plus, and Enterprise plans with ROI projections.</p>
+            <h4>💎 Plans &amp; Pricing</h4>
+            <p>Compare the Essentials, Complete and Group plans, with an ROI estimate.</p>
           </a>
           <a class="error-card" href="why.html">
             <h4>🎯 Why Scored</h4>
@@ -229,47 +424,82 @@
 
   <!-- Footer -->
   <footer>
-    <div class="wrap">
-      <div class="foot-grid vx">
-        <div class="foot-brand">
-          <a class="foot-logo-card" href="index.html" aria-label="ScorEd IT Solutions &mdash; Writing History in EdTech">
-            <img src="assets/scored-footer-logo-official.png" alt="ScorEd IT Solutions" class="foot-logo-img" width="160" height="160" loading="lazy">
-          </a>
-          <h3 style="font-size:1.15rem;font-weight:700;color:var(--navy,#0B2545);margin:4px 0 0;">ScorEd IT Solutions</h3>
-          <p class="foot-tagline">Writing History in EdTech</p>
-          <p class="about">Streamline your institute with Scored: AI-enabled institute management and CBT exams, all-in-one and ready to go.</p>
-        </div>
-        <nav class="foot-nav" aria-label="Footer platform links">
-          <h6>Platform</h6>
-          <ul>
-            <li><a href="features.html#f-cbt">CBT Examination System</a></li>
-            <li><a href="features.html#f-attendance">Biometric Attendance</a></li>
-            <li><a href="features.html#f-payroll">Staff Payroll &amp; Compliance</a></li>
-            <li><a href="features.html#f-admissions">Admissions &amp; Lifecycle</a></li>
-            <li><a href="features.html">All 20+ Modules</a></li>
-          </ul>
-        </nav>
-        <nav class="foot-nav" aria-label="Footer company links">
-          <h6>Company</h6>
-          <ul>
-            <li><a href="about.html">About ScorEd</a></li>
-            <li><a href="why.html">Why Choose Us</a></li>
-            <li><a href="services.html">Implementation Services</a></li>
-            <li><a href="pricing.html">Plans &amp; Pricing</a></li>
-            <li><a href="organization.html">Organization Chart</a></li>
-            <li><a href="mailto:hello@scored.co.in">hello@scored.co.in</a></li>
-          </ul>
-        </nav>
+  <div class="wrap">
+    <div class="foot-cta">
+      <div>
+        <h2>Ready to simplify your institute? Try Scored today!</h2>
+        <p>Save time, cut spreadsheet errors and keep your institute data secure with one platform for the office and the exam hall.</p>
       </div>
-      <div class="foot-bottom">
-        <span>Copyright &copy; <span id="year">2026</span> ScorEd IT Solutions. All rights reserved.</span>
-        <span><a href="mailto:hello@scored.co.in?subject=Privacy%20Policy%20Request">Privacy policy</a> &middot; <a href="mailto:hello@scored.co.in?subject=Terms%20of%20Service%20Request">Terms of service</a></span>
-        <div class="foot-socials">
-          <a href="https://www.youtube.com/@Scored-m8x" target="_blank" rel="noopener noreferrer" class="foot-social-link yt" aria-label="YouTube" title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      <div class="hero-ctas">
+          <a class="btn btn-primary" href="index.html#evaluations-showcase">Explore Live Simulation</a>
+          <a class="btn btn-outline" href="mailto:hello@scored.co.in?subject=Institutional%20Consultation">Schedule Institutional Consultation</a>
         </div>
-      </div>
     </div>
-  </footer>
+    <div class="foot-grid vx">
+      <div class="foot-brand">
+        <a class="foot-logo-card" href="index.html" aria-label="ScorEd IT Solutions &mdash; Writing History in EdTech">
+          <img src="assets/scored-footer-logo-official.png" alt="ScorEd IT Solutions" class="foot-logo-img" width="160" height="160" loading="lazy">
+        </a>
+        <h3 style="font-size:1.15rem;font-weight:700;color:var(--navy,#0B2545);margin:4px 0 0;">ScorEd IT Solutions</h3>
+        <p class="foot-tagline">Writing History in EdTech</p>
+        <p class="about">Streamline your institute with Scored: AI-enabled institute management and CBT exams, all-in-one and ready to go.</p>
+      </div>
+      <nav aria-label="Quick links">
+        <h2>Quick links</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="why.html">Why Scored</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="organization.html">Organization Chart</a></li>
+          <li><a href="mailto:hello@scored.co.in?subject=Terms%20and%20Conditions%20Request">Terms &amp; Conditions</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Features">
+        <h2>Features</h2>
+        <ul>
+          <li><a href="features.html#f-attendance" data-feat>Attendance</a></li>
+          <li><a href="features.html#f-payroll" data-feat>Payroll</a></li>
+          <li><a href="features.html#f-admissions" data-feat>Admissions &amp; administration</a></li>
+          <li><a href="features.html#f-cbt" data-feat>CBT exams</a></li>
+          <li><a href="features.html#f-analysis" data-feat>Analysis</a></li>
+          <li><a href="features.html#f-secure" data-feat>Secure exam mode</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Connect">
+        <h2>Connect</h2>
+        <ul>
+          <li><a href="features.html">Feature Suite</a></li>
+          <li><a href="mailto:hello@scored.co.in">hello@scored.co.in</a></li>
+          <li><a href="mailto:hello@scored.co.in">Email us</a></li>
+          <li><a href="mailto:hello@scored.co.in?subject=LinkedIn%20Profile%20Request">LinkedIn</a></li>
+          <li><a href="https://www.youtube.com/@Scored-m8x" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>Copyright &copy; <span id="year">2026</span> ScorEd IT Solutions. All rights reserved.</span>
+      <span><a href="mailto:hello@scored.co.in?subject=Privacy%20Policy%20Request">Privacy policy</a> &middot; <a href="mailto:hello@scored.co.in?subject=Terms%20of%20Service%20Request">Terms of service</a></span>
+
+      <div class="foot-socials">
+        <a href="https://www.youtube.com/@Scored-m8x" target="_blank" rel="noopener noreferrer" class="foot-social-link yt" aria-label="YouTube" title="YouTube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="mailto:hello@scored.co.in?subject=Facebook%20Profile%20Request" class="foot-social-link fb" aria-label="Facebook profile request" title="Request Facebook profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="mailto:hello@scored.co.in?subject=Instagram%20Profile%20Request" class="foot-social-link ig" aria-label="Instagram profile request" title="Request Instagram profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="mailto:hello@scored.co.in?subject=LinkedIn%20Profile%20Request" class="foot-social-link li" aria-label="LinkedIn profile request" title="Request LinkedIn profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();

@@ -3052,3 +3052,127 @@ dialog.demo, #demo {
     min-height: 40px;
   }
 }
+
+
+/* ============================================================
+   Hero video: on phones and portrait tablets show the whole video
+   in a frame under the headline, instead of a heavily cropped
+   background that the text covers (16:9 video, tall narrow hero)
+   ============================================================ */
+@media (max-width: 900px) {
+  .vx-hero {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    min-height: 0 !important;
+  }
+  .vx-hero .hero-center {
+    order: 1;
+    padding-bottom: 28px !important;
+  }
+  .vx-hero .hero-bg {
+    order: 2;
+    position: relative;
+    inset: auto;
+    z-index: 0;
+    width: calc(100% - 48px);
+    max-width: 760px;
+    margin: 0 auto 28px;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 16px 40px rgba(5, 18, 45, 0.45);
+    background: #0A2148;
+  }
+  .vx-hero .hero-bg video {
+    opacity: 1;
+    object-fit: cover;
+  }
+  .vx-hero .hero-tint {
+    display: none;
+  }
+  .vx-hero .hv-toggle {
+    bottom: 42px;
+    right: max(38px, calc((100% - 760px) / 2 + 14px));
+  }
+}
+@media (max-width: 480px) {
+  .vx-hero .hero-bg {
+    width: calc(100% - 32px);
+    margin-bottom: 20px;
+    border-radius: 12px;
+  }
+  .vx-hero .hv-toggle {
+    bottom: 32px;
+    right: 26px;
+  }
+}
+/* Short landscape phones: keep the headline block compact */
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 520px) {
+  .vx-hero .hero-center {
+    padding-top: 28px !important;
+    padding-bottom: 20px !important;
+  }
+}
+
+/* ============================================================
+   Narrow-screen overflow fixes
+   ============================================================ */
+@media (max-width: 400px) {
+  #brand-heritage [style*="minmax(320px"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+.services-cards {
+  grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+}
+.foot-cta > * {
+  min-width: 0;
+}
+@media (max-width: 480px) {
+  .foot-cta .hero-ctas .btn,
+  #btn-start-migration {
+    white-space: normal;
+    text-align: center;
+    max-width: 100%;
+  }
+  .foot-cta .hero-ctas .btn {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   Readable text colours: the brand teal is too light for small text
+   on white, so text uses a darker teal of the same hue
+   ============================================================ */
+:root {
+  --teal-text: #0B7E83;
+  --gold-text: #B45309;
+}
+.vx-head .sub,
+.intro-top .sub,
+.kpi small,
+.path .who,
+.path .step-circle,
+.section p a:not(.btn) {
+  color: var(--teal-text);
+}
+.compare .us .mk {
+  background: var(--teal-text);
+}
+.count .n i {
+  color: var(--gold-text);
+}
+.more-link {
+  color: var(--teal-text);
+}
+
+/* Outline button on the dark footer banner: white on navy, on every page */
+.foot-cta .btn-outline {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  background: transparent !important;
+}
+.foot-cta .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+}
