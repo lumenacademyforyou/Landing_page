@@ -2967,3 +2967,88 @@ dialog.demo, #demo {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.24);
 }
+
+
+/* ============================================================
+   Small-screen fixes (landing page)
+   ============================================================ */
+
+/* Hero buttons: let long labels wrap instead of running off a narrow screen */
+@media (max-width: 480px) {
+  .vx-hero .hero-ctas .btn {
+    white-space: normal !important;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+/* Biometric feed: let the row and its status pill wrap inside the card */
+.bio-punch-row {
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+.bio-user-cell {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.bio-sms-sent {
+  white-space: nowrap;
+}
+@media (max-width: 480px) {
+  .bio-user-cell {
+    flex-wrap: wrap;
+  }
+  .bio-sms-sent {
+    white-space: normal;
+  }
+}
+
+/* Floating contact button: smaller on phones, and leave room so it never hides the footer */
+@media (max-width: 700px) {
+  .floating-chat-btn {
+    width: 46px !important;
+    height: 46px !important;
+    bottom: 14px !important;
+    right: 14px !important;
+  }
+  .floating-chat-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+  body {
+    padding-bottom: 68px;
+  }
+  .vx-hero .hero-center {
+    padding-right: 24px !important;
+  }
+  .vx-hero .hero-points {
+    max-width: calc(100% - 56px);
+  }
+}
+
+/* Touch targets: text links get at least a 40px tall tap area on phones */
+@media (max-width: 768px) {
+  .more-link,
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
+  .more-link {
+    margin-top: 12px;
+  }
+}
+
+/* Touch targets in the footer and inline contact links on phones */
+@media (max-width: 768px) {
+  footer li > a,
+  .foot-bottom a,
+  .section.tint p a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
+}
