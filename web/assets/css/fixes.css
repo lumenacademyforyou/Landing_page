@@ -1,0 +1,79 @@
+/* Loaded after main.css and future-gen.css on every page: mobile layout fixes, the contact
+   details, and a scroll reveal that cannot leave a page blank. */
+
+/* Long button labels wrapped off the right edge of narrow phones instead of onto a second line. */
+.btn{white-space:normal;max-width:100%;text-align:center}
+@media (max-width:600px){
+  .hero-ctas{flex-direction:column;align-items:stretch}
+  .hero-ctas .btn{width:100%;justify-content:center}
+  .foot-cta{padding:28px 22px}
+  .foot-cta .hero-ctas{justify-content:stretch}
+  #btn-start-migration{width:100%;padding:14px 20px !important}
+  .mobile-menu-cta .btn{text-align:center}
+}
+
+/* The home hero's copy sat against the left edge of wide screens; line it up with the header instead. */
+.vx-hero .hero-center{margin-left:max(0px,calc((100% - var(--wrap)) / 2)) !important}
+
+/* Grids with a fixed minimum column pushed the page sideways on phones narrower than the minimum. */
+.services-cards{grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr))}
+.steps{grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))}
+
+/* Content stays visible unless the reveal script is there to bring it in. */
+html:not(.js) .ng-reveal{opacity:1 !important;transform:none !important}
+
+/* Jumps to a module or a contact anchor land below the sticky header, not under it. */
+[id]{scroll-margin-top:96px}
+
+/* The header logo is the company banner, waves and all: keep its height and let the width follow. */
+.brand-logo-img,.site-header .brand img{height:68px !important;width:auto !important;max-width:none !important;border-radius:10px !important;filter:none !important}
+@media (max-width:768px){.brand-logo-img,.site-header .brand img{height:56px !important}}
+/* The footer logo is the square company logo, as supplied. */
+.foot-logo-img{width:170px !important;height:auto !important;max-height:none !important;max-width:170px !important;aspect-ratio:auto !important;border-radius:12px !important}
+
+/* Footer contact column */
+.foot-contact address{font-style:normal;display:grid;gap:10px;line-height:1.5}
+.foot-contact a{overflow-wrap:break-word}
+@media (max-width:900px){.foot-contact{grid-column:1/-1}}
+/* The outline button was royal blue on the navy band, too dark to read. */
+.foot-cta .btn-outline{color:#fff !important;border-color:rgba(255,255,255,.65) !important;background:transparent !important}
+.foot-cta .btn-outline:hover{background:rgba(255,255,255,.1) !important}
+.foot-socials{display:flex;gap:10px}
+.foot-social-link.wa:hover{color:#25D366}
+
+/* Contact page */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.contact-card{display:flex;flex-direction:column;gap:8px;padding:26px 24px;background:#fff;border:1px solid var(--line,#E2E8F0);border-radius:18px;
+  box-shadow:0 10px 30px -18px rgba(15,47,95,.35);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s}
+.contact-card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -18px rgba(15,47,95,.45)}
+.contact-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:rgba(21,84,201,.08);color:var(--scored-royal,#1554C9)}
+.contact-label{font-weight:700;color:var(--navy,#0B2545);font-size:1.05rem}
+.contact-value{color:var(--muted,#475569);line-height:1.55;overflow-wrap:anywhere}
+.contact-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:600px){.contact-actions{flex-direction:column}.contact-actions .btn{width:100%;justify-content:center}}
+
+/* Hero: warm white type with a soft warm glow, so the words lift off the video and the navy. */
+.vx-hero,.page-hero{--warm-white:#FFF7E8}
+.vx-hero h1,.page-hero h1{color:var(--warm-white) !important;
+  text-shadow:0 0 28px rgba(255,236,204,.5),0 0 3px rgba(255,247,232,.6),0 3px 14px rgba(6,22,52,.55) !important}
+.vx-hero .lede,.page-hero .lede,.vx-hero .hero-points li,.page-hero .crumbs span{color:rgba(255,247,232,.94) !important;
+  text-shadow:0 0 14px rgba(255,236,204,.28),0 2px 8px rgba(6,22,52,.5) !important}
+.vx-hero .hl,.page-hero .hl{text-shadow:0 0 24px rgba(255,214,150,.5),0 3px 14px rgba(6,22,52,.5) !important}
+
+/* Hero: the blue waves and gold line of the company banner, flowing into the section below. */
+.hero-wave{position:absolute;left:0;right:0;bottom:-1px;height:clamp(56px,9vw,132px);z-index:0;pointer-events:none;line-height:0}
+.hero-wave svg{display:block;width:100%;height:100%}
+.vx-hero .hero-center{padding-bottom:calc(clamp(52px,6.5vw,92px) + clamp(40px,7vw,104px)) !important}
+.page-hero{padding-bottom:calc(clamp(56px,7vw,88px) + clamp(36px,6vw,90px)) !important}
+.vx-hero .wrap,.page-hero .wrap{position:relative;z-index:1}
+
+/* Phones: in the attendance feed mock-up a wrapped name ran into the class beside it. Stack them instead. */
+@media (max-width:600px){
+  .bio-user-cell > div{font-size:0;line-height:1.25}
+  .bio-user-cell > div b{display:block;font-size:.82rem}
+  .bio-user-cell > div small{display:block;font-size:.72rem;margin-top:2px}
+}
+
+/* Phones: the floating contact button must not sit on the footer's last line. */
+@media (max-width:768px){footer{padding-bottom:96px}}
