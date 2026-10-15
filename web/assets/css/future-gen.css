@@ -3055,28 +3055,28 @@ dialog.demo, #demo {
 
 
 /* ============================================================
-   Hero video: on phones and portrait tablets show the whole video
-   in a frame under the headline, instead of a heavily cropped
-   background that the text covers (16:9 video, tall narrow hero)
+   Hero video: on phones and portrait tablets the whole video is
+   shown at the top, in its own 16:9 frame, with the headline and
+   buttons underneath (a 16:9 video cropped into a tall narrow hero
+   hides most of the picture)
    ============================================================ */
 @media (max-width: 900px) {
   .vx-hero {
+    --hv-gut: 24px;
+    --hv-top: 24px;
+    --hv-frame: min(calc(100vw - 2 * var(--hv-gut)), 760px);
+    --hv-tg: 40px;
     flex-direction: column !important;
     align-items: stretch !important;
     min-height: 0 !important;
   }
-  .vx-hero .hero-center {
-    order: 1;
-    padding-bottom: 28px !important;
-  }
   .vx-hero .hero-bg {
-    order: 2;
+    order: 1;
     position: relative;
     inset: auto;
     z-index: 0;
-    width: calc(100% - 48px);
-    max-width: 760px;
-    margin: 0 auto 28px;
+    width: var(--hv-frame);
+    margin: var(--hv-top) auto 0;
     aspect-ratio: 16 / 9;
     border-radius: 16px;
     overflow: hidden;
@@ -3091,26 +3091,39 @@ dialog.demo, #demo {
   .vx-hero .hero-tint {
     display: none;
   }
+  .vx-hero .hero-center {
+    order: 2;
+    padding-top: 28px !important;
+    padding-bottom: 36px !important;
+  }
+  /* pause button: bottom-right corner of the video frame at the top */
   .vx-hero .hv-toggle {
-    bottom: 42px;
-    right: max(38px, calc((100% - 760px) / 2 + 14px));
+    width: var(--hv-tg);
+    height: var(--hv-tg);
+    bottom: auto;
+    top: calc(var(--hv-top) + var(--hv-frame) * 9 / 16 - var(--hv-tg) - 10px);
+    right: calc((100% - var(--hv-frame)) / 2 + 10px);
+  }
+  .vx-hero .hv-toggle.attention {
+    --hv-tg: 56px;
   }
 }
 @media (max-width: 480px) {
+  .vx-hero {
+    --hv-gut: 16px;
+    --hv-top: 16px;
+  }
   .vx-hero .hero-bg {
-    width: calc(100% - 32px);
-    margin-bottom: 20px;
     border-radius: 12px;
   }
-  .vx-hero .hv-toggle {
-    bottom: 32px;
-    right: 26px;
+  .vx-hero .hero-center {
+    padding-top: 22px !important;
   }
 }
-/* Short landscape phones: keep the headline block compact */
+/* Short landscape phones: keep the page compact */
 @media (max-width: 900px) and (orientation: landscape) and (max-height: 520px) {
   .vx-hero .hero-center {
-    padding-top: 28px !important;
+    padding-top: 20px !important;
     padding-bottom: 20px !important;
   }
 }
