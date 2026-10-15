@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Technical Architecture &amp; Platform Security | Scored Technologies</title>
+<meta name="description" content="Technical architecture of Scored: PostgreSQL 17 multi-tenancy with Row-Level Security (RLS), real-time CBT examination engine, DPDP Act compliance, and offline-first PWA sync.">
+<meta name="author" content="Scored Technologies">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0F2E5C">
+<link rel="canonical" href="https://www.scored.co.in/architecture.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scored">
+<meta property="og:title" content="Technical Architecture &amp; Platform Security | Scored Technologies">
+<meta property="og:description" content="Explore Scored's enterprise architecture: database-level multi-tenancy, real-time proctored CBT engine, DPDP Act audit ledger, and high-availability infrastructure.">
+<meta property="og:url" content="https://www.scored.co.in/architecture.html">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://www.scored.co.in/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Technical Architecture &amp; Platform Security | Scored Technologies">
+<meta name="twitter:description" content="Explore Scored's enterprise architecture: database-level multi-tenancy, real-time proctored CBT engine, DPDP Act audit ledger, and high-availability infrastructure.">
+<meta name="twitter:image" content="https://www.scored.co.in/og-image.jpg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Scored Technical Architecture and Security Specification",
+  "description": "Comprehensive specification of Scored multi-tenant school management and CBT exam system.",
+  "author": {"@type": "Organization", "name": "Scored Technologies"},
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://www.scored.co.in/#org",
+    "name": "Scored Technologies",
+    "url": "https://www.scored.co.in/",
+    "email": "hr@scored.co.in"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.scored.co.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Architecture",
+      "item": "https://www.scored.co.in/architecture.html"
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/future-gen.css">
+<script id="reveal-guard">document.documentElement.classList.add('js');setTimeout(function(){if(!window.__revealReady)document.querySelectorAll('.ng-reveal').forEach(function(e){e.classList.add('is-visible')})},2500);</script>
+<link rel="stylesheet" href="assets/css/fixes.css">
+<style>
+/* Architecture Specific Visual Styles */
+.arch-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}
+.arch-card {
+  background: #ffffff;
+  border: 1px solid #DFEAF7;
+  border-radius: 20px;
+  padding: clamp(24px, 3vw, 32px);
+  box-shadow: 0 10px 30px -15px rgba(15, 46, 92, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+.arch-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px -12px rgba(21, 84, 201, 0.14);
+  border-color: var(--scored-royal, #1554C9);
+}
+.arch-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(21, 84, 201, 0.08);
+  color: var(--scored-royal, #1554C9);
+  display: grid;
+  place-items: center;
+  margin-bottom: 20px;
+}
+.arch-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--scored-navy, #0F2E5C);
+  margin: 0 0 10px;
+}
+.arch-card p {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 16px;
+  flex: 1;
+}
+.arch-spec-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid #EEF3FA;
+  padding-top: 16px;
+}
+.arch-spec-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: #334155;
+  font-weight: 500;
+}
+.arch-spec-list svg {
+  width: 16px;
+  height: 16px;
+  color: #10B981;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* System Topology Diagram */
+.topology-board {
+  background: #081B38;
+  background-image: radial-gradient(rgba(21, 84, 201, 0.2) 1px, transparent 1px);
+  background-size: 24px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: clamp(24px, 4vw, 44px);
+  color: #ffffff;
+  margin-top: 40px;
+  box-shadow: 0 25px 60px -15px rgba(8, 27, 56, 0.5);
+}
+.topology-layer-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #F5C24B;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.topology-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.topology-node {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+.topology-node:hover {
+  background: rgba(21, 84, 201, 0.2);
+  border-color: rgba(108, 198, 238, 0.4);
+  transform: translateY(-2px);
+}
+.topology-node strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+.topology-node span {
+  display: block;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.45;
+}
+.topology-connector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -14px 0 16px;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 1.2rem;
+}
+
+/* Architecture Specs Table */
+.arch-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 16px;
+  border: 1px solid #DFEAF7;
+  background: #ffffff;
+  box-shadow: 0 10px 30px -15px rgba(15, 46, 92, 0.08);
+  margin-top: 36px;
+}
+.arch-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+.arch-table th {
+  background: #F8FAFD;
+  color: var(--scored-navy, #0F2E5C);
+  font-weight: 700;
+  padding: 16px 20px;
+  border-bottom: 1px solid #E2E8F0;
+}
+.arch-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #EEF3FA;
+  color: #334155;
+  vertical-align: top;
+}
+.arch-table tr:last-child td {
+  border-bottom: none;
+}
+.arch-table strong {
+  color: var(--scored-navy, #0F2E5C);
+}
+.arch-badge-tech {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(21, 84, 201, 0.08);
+  color: var(--scored-royal, #1554C9);
+}
+</style>
+</head>
+<body>
+<div class="ng-scroll-progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.5l2.6 7.1 7.4.4-5.8 4.6 2 7.3L12 16.7l-6.2 4.2 2-7.3L2 9l7.4-.4z"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="brand" href="index.html" aria-label="Scored home">
+        <img src="assets/scored-banner-logo.jpg" alt="Scored Technologies" class="brand-logo-img" width="485" height="240">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="why.html">Why Scored</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" type="button" aria-expanded="false" aria-controls="features-menu">Features
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="dropdown mega-dropdown" id="features-menu" hidden>
+            <div class="mega-matrix-grid">
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--scored-royal)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="var(--scored-royal)" fill-opacity="0.12"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                  </div>
+                  <h4 class="mega-col-title">Assessment Management</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#m-assessment">Schedule Exam</a></li>
+                  <li><a href="features.html#m-assessment">Schedule Mock Test</a></li>
+                  <li><a href="features.html#m-assessment">Schedule Homework</a></li>
+                  <li><a href="features.html#m-assessment">Multilingual Assessment</a></li>
+                </ul>
+              </div>
+
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--scored-royal)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3" fill="var(--scored-royal)" fill-opacity="0.18"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                  </div>
+                  <h4 class="mega-col-title">Question Management</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#m-questions">Create &amp; Manage Questions</a></li>
+                  <li><a href="features.html#m-questions">Question Bank Management</a></li>
+                  <li><a href="features.html#m-questions">Import / Export Questions</a></li>
+                </ul>
+              </div>
+
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--scored-royal)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z" fill="var(--scored-royal)" fill-opacity="0.15"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                  </div>
+                  <h4 class="mega-col-title">Course &amp; Batch Management</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#m-courses">Batch Management</a></li>
+                  <li><a href="features.html#m-courses">Course Management</a></li>
+                </ul>
+              </div>
+
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <div class="mega-col-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--scored-royal)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" fill="var(--scored-royal)" fill-opacity="0.12"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="9" y1="17" x2="9" y2="15"/><line x1="12" y1="17" x2="12" y2="12"/><line x1="15" y1="17" x2="15" y2="9"/></svg>
+                  </div>
+                  <h4 class="mega-col-title">Reports &amp; Analytics</h4>
+                </div>
+                <ul class="mega-list">
+                  <li><a href="features.html#m-reports">Exam Reports</a></li>
+                  <li><a href="features.html#m-reports">Student Reports</a></li>
+                  <li><a href="features.html#m-reports">Real-Time Control Board</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mega-footer">
+              <div class="mega-footer-left">
+                <a href="architecture.html" class="mega-footer-tag" style="text-decoration:none;">Scored Architecture &rarr;</a>
+                <span style="color:#64748b;font-weight:500;">Scored powers 8 core academic dimensions with enterprise exam security</span>
+              </div>
+              <div class="mega-footer-right">
+                <a href="features.html" class="btn btn-primary btn-sm">See All Features &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button type="button" class="btn-login btn-sm" data-modal="login-dialog" aria-haspopup="dialog">Log In</button>
+        <a class="btn btn-primary btn-sm" href="contact.html">Sign Up</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="why.html">Why Scored</a>
+      <button class="m-feat" type="button" aria-expanded="false" aria-controls="m-feat-list">Features <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="m-feat-list" id="m-feat-list" hidden>
+        <div style="padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06);">
+          <strong style="color:var(--scored-royal);display:block;font-size:0.85rem;text-transform:uppercase;margin-bottom:6px;">Assessment Management</strong>
+          <a class="sub" href="features.html#m-assessment">Schedule Exam</a>
+          <a class="sub" href="features.html#m-assessment">Schedule Mock Test</a>
+        </div>
+        <div style="padding: 12px 0;">
+          <a href="features.html" style="font-weight:700;color:var(--scored-royal);">See all features &rarr;</a>
+        </div>
+      </div>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact Us</a>
+      <div class="mobile-menu-cta" style="display:flex;gap:10px;padding-top:14px;margin-top:14px;border-top:1px solid rgba(219,230,242,.75);">
+        <button type="button" class="btn btn-outline" data-modal="login-dialog" style="flex:1;justify-content:center;color:var(--scored-royal) !important;border:1.5px solid var(--scored-royal) !important;border-radius:10px;font-weight:600;padding:10px 14px;">Log In</button>
+        <a class="btn btn-primary" href="contact.html" style="flex:1;justify-content:center;color:#fff !important;border-radius:10px;padding:10px 14px;">Sign Up &rarr;</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Page Hero -->
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Architecture</span>
+      </nav>
+      <div class="future-badge dark"><span class="pulse-dot"></span> ENTERPRISE ENGINEERING &amp; SECURITY SPECIFICATION</div>
+      <h1 id="page-title">Technical Architecture &amp; <span class="hl">Security Framework</span></h1>
+      <p class="lede">Explore how Scored combines database-level Row-Level Security (RLS) multi-tenancy, real-time proctored CBT examination concurrency, DPDP Act 2023 compliance, and offline-first PWA resilience for modern educational institutions.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="#topology">System Topology</a>
+        <a class="btn btn-ghost-light" href="#security-dpdp">Security &amp; DPDP Compliance</a>
+      </div>
+    </div>
+    <div class="hero-wave" aria-hidden="true" style="--wave-floor:#FFFFFF">
+      <svg viewBox="0 0 1440 160" preserveAspectRatio="none" focusable="false">
+        <path d="M0,70 C240,18 480,22 720,60 C960,98 1200,112 1440,48 L1440,160 L0,160 Z" fill="#6CC6EE" fill-opacity=".38"/>
+        <path d="M0,102 C260,58 520,70 760,100 C1000,130 1220,122 1440,80 L1440,160 L0,160 Z" fill="#1E73D8" fill-opacity=".78"/>
+        <path d="M0,98 C260,54 520,66 760,96 C1000,126 1220,118 1440,76" fill="none" stroke="#F5C24B" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
+        <path d="M0,136 C300,110 600,118 900,138 C1150,155 1320,150 1440,128 L1440,160 L0,160 Z" fill="var(--wave-floor)"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Interactive System Topology -->
+  <section class="section" id="topology" style="padding-block:clamp(48px, 6vw, 84px);">
+    <div class="wrap">
+      <div class="vx-head">
+        <h2>End-to-End System Architecture</h2>
+        <span class="sub">Modular monolith API powering multi-tenant campus operations and high-stakes assessments</span>
+        <p>Three specialized frontends connect over secure TLS 1.3 to a high-throughput API gateway backed by PostgreSQL with hardware isolation.</p>
+      </div>
+
+      <div class="topology-board">
+        <!-- Client Layer -->
+        <div class="topology-layer-title">1. Client Applications Tier (React 19 &middot; Vite &middot; Progressive Web Apps)</div>
+        <div class="topology-row">
+          <div class="topology-node">
+            <strong>Staff &amp; Admin Console</strong>
+            <span>Desktop-optimized web app for high-volume admissions, payroll, fee collections, timetabling and EMIS state reporting.</span>
+          </div>
+          <div class="topology-node">
+            <strong>Teacher PWA</strong>
+            <span>Mobile-first PWA with an offline register outbox for daily attendance, marks entry, leave and homework without active Wi-Fi.</span>
+          </div>
+          <div class="topology-node">
+            <strong>Parent &amp; Student PWA</strong>
+            <span>Multi-child single login for live attendance feeds, fee receipts, digital report cards, and homework reminders.</span>
+          </div>
+          <div class="topology-node">
+            <strong>CBT Exam Client</strong>
+            <span>Full-screen proctored environment supporting Safe Exam Browser (SEB), Face ID periodic capture, and offline answer buffering.</span>
+          </div>
+        </div>
+
+        <div class="topology-connector">&darr; &uarr; HTTPS / WSS &middot; Granular Permission Guards</div>
+
+        <!-- API & Logic Layer -->
+        <div class="topology-layer-title">2. API Gateway &amp; Application Services Tier (Node 20 LTS &middot; Express 5 &middot; Zod)</div>
+        <div class="topology-row">
+          <div class="topology-node">
+            <strong>Edge Security &amp; Rate Limiting</strong>
+            <span>Strict CORS, Content Security Policy (CSP), DDoS protection, and IP-whitelisting for institutional testing labs.</span>
+          </div>
+          <div class="topology-node">
+            <strong>Authentication &amp; RBAC Guard</strong>
+            <span>JWT access + rotating refresh tokens; scrypt password hashing; TOTP MFA for administrative roles; OTP over SMS for parents.</span>
+          </div>
+          <div class="topology-node">
+            <strong>Tenant Lifecycle Controller</strong>
+            <span>Enforces tenant states (active / read-only / suspended) at runtime. Automatically routes requests to tenant context.</span>
+          </div>
+          <div class="topology-node">
+            <strong>35 Routers &middot; 260 Endpoints</strong>
+            <span>Full lifecycle: SIS, admissions desk, fee ledger, question bank generator, real-time control board, and EMIS synchronizer.</span>
+          </div>
+        </div>
+
+        <div class="topology-connector">&darr; &uarr; Connection Pooling &middot; RLS Enforced Session Context</div>
+
+        <!-- Data Layer -->
+        <div class="topology-layer-title">3. Data &amp; Audit Tier (PostgreSQL 17 &middot; Row-Level Security)</div>
+        <div class="topology-row">
+          <div class="topology-node">
+            <strong>PostgreSQL 17 with RLS</strong>
+            <span>Every single table has a mandatory <code>tenant_id</code>. DB engine isolates tenant rows, preventing cross-tenant leakage.</span>
+          </div>
+          <div class="topology-node">
+            <strong>Immutable Audit Log</strong>
+            <span>Append-only, hash-chained <code>audit_events</code> ledger. Every grade modification, fee transaction, and login is cryptographically verifiable.</span>
+          </div>
+          <div class="topology-node">
+            <strong>DPDP Compliance Ledgers</strong>
+            <span>Consent ledgers, data-rights registers, and export logs ensuring full Indian DPDP Act 2023 statutory adherence.</span>
+          </div>
+          <div class="topology-node">
+            <strong>Encrypted Backups</strong>
+            <span>Nightly automated encrypted snapshots, point-in-time recovery, and zero-downtime rolling database migrations.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Architectural Pillars -->
+  <section class="section tint" id="security-dpdp" style="padding-block:clamp(48px, 6vw, 84px);">
+    <div class="wrap">
+      <div class="vx-head">
+        <h2>Five Pillars of Institutional Reliability</h2>
+        <span class="sub">How Scored guarantees speed, data safety, and exam integrity at scale</span>
+        <p>Engineered to eliminate single points of failure, human oversight in grading, and spreadsheet vulnerabilities.</p>
+      </div>
+
+      <div class="arch-grid-cards">
+        <!-- Pillar 1 -->
+        <article class="arch-card ng-reveal">
+          <div class="arch-card-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>Multi-Tenant Row-Level Security (RLS)</h3>
+          <p>Rather than relying merely on software application filters that can fail during code bugs or SQL injections, Scored enforces tenant isolation directly in the PostgreSQL kernel.</p>
+          <ul class="arch-spec-list">
+            <li><svg><use href="#check"/></svg> App connects as non-bypass role (<code>lumen_app</code>)</li>
+            <li><svg><use href="#check"/></svg> Strict tenant boundary across all 46 database tables</li>
+            <li><svg><use href="#check"/></svg> Instant provisioning of new schools without code changes</li>
+          </ul>
+        </article>
+
+        <!-- Pillar 2 -->
+        <article class="arch-card ng-reveal">
+          <div class="arch-card-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 12 15 16 10"/></svg>
+          </div>
+          <h3>High-Concurrency CBT &amp; Anti-Cheat</h3>
+          <p>Capable of supporting thousands of simultaneous exam-takers with sub-second answer persistence, dynamic question permutations, and automated tamper detection.</p>
+          <ul class="arch-spec-list">
+            <li><svg><use href="#check"/></svg> Safe Exam Browser (SEB) full-screen sandbox integration</li>
+            <li><svg><use href="#check"/></svg> Face ID periodic webcam snapshot &amp; proctor review</li>
+            <li><svg><use href="#check"/></svg> Sub-second live exam control board for invigilators</li>
+          </ul>
+        </article>
+
+        <!-- Pillar 3 -->
+        <article class="arch-card ng-reveal">
+          <div class="arch-card-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3>DPDP Act 2023 &amp; Cryptographic Audit</h3>
+          <p>Built to exceed Indian Digital Personal Data Protection Act requirements through immutable event logging, consent management, and strict purpose limitation.</p>
+          <ul class="arch-spec-list">
+            <li><svg><use href="#check"/></svg> Append-only, SHA-256 hash-chained audit ledger</li>
+            <li><svg><use href="#check"/></svg> Granular guardian consent ledgers for minor data</li>
+            <li><svg><use href="#check"/></svg> Complete data export and right-to-forget pipelines</li>
+          </ul>
+        </article>
+
+        <!-- Pillar 4 -->
+        <article class="arch-card ng-reveal">
+          <div class="arch-card-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l22 22"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.58 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/></svg>
+          </div>
+          <h3>Offline-First PWA Synchronization</h3>
+          <p>Poor school campus Wi-Fi or classroom connectivity never stops teachers from marking registers or recording grades. Local outbox queues flush automatically upon reconnection.</p>
+          <ul class="arch-spec-list">
+            <li><svg><use href="#check"/></svg> IndexedDB local persistence with zero loss guarantee</li>
+            <li><svg><use href="#check"/></svg> Conflict-free transactional sync upon network restore</li>
+            <li><svg><use href="#check"/></svg> Fast service-worker caching for instant cold launches</li>
+          </ul>
+        </article>
+
+        <!-- Pillar 5 -->
+        <article class="arch-card ng-reveal">
+          <div class="arch-card-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Granular RBAC (9 Roles &middot; 56 Permissions)</h3>
+          <p>Routes and UI controls are never checked against ambiguous role names. Every action requires explicit permission verification, protecting sensitive payroll and student records.</p>
+          <ul class="arch-spec-list">
+            <li><svg><use href="#check"/></svg> 56 granular permissions evaluated on every API request</li>
+            <li><svg><use href="#check"/></svg> Mandatory TOTP MFA for Admin, Principal, Accountant &amp; Examiner</li>
+            <li><svg><use href="#check"/></svg> OTP-secured parental mobile access over encrypted SMS</li>
+          </ul>
+        </article>
+
+        <!-- Pillar 6 -->
+        <article class="arch-card ng-reveal">
+          <div class="arch-card-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3>Legacy Data Migration Pipeline</h3>
+          <p>Switching from legacy spreadsheets or old desktop ERPs is completely automated. Our ingestion engine normalizes dirty data, cleans duplicates, and validates phone numbers.</p>
+          <ul class="arch-spec-list">
+            <li><svg><use href="#check"/></svg> Pre-flight dry runs before committing student records</li>
+            <li><svg><use href="#check"/></svg> Automatic detection of phone, email, and roll number conflicts</li>
+            <li><svg><use href="#check"/></svg> Historical fee ledger and attendance reconciliation</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Architecture Specifications Table -->
+  <section class="section" style="padding-block:clamp(48px, 6vw, 84px);">
+    <div class="wrap">
+      <div class="vx-head">
+        <h2>Technical Specification Matrix</h2>
+        <span class="sub">Enterprise technology stack powering Scored Cloud</span>
+      </div>
+
+      <div class="arch-table-wrap">
+        <table class="arch-table">
+          <thead>
+            <tr>
+              <th scope="col" style="width:25%;">Architecture Dimension</th>
+              <th scope="col" style="width:35%;">Scored Implementation</th>
+              <th scope="col" style="width:40%;">Institutional Advantage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Architecture Pattern</strong></td>
+              <td><span class="arch-badge-tech">Modular Monolith</span> TypeScript 6, Node 20 LTS</td>
+              <td>High development velocity, transactional data integrity, low latency communication without distributed network overhead.</td>
+            </tr>
+            <tr>
+              <td><strong>Database &amp; Multi-Tenancy</strong></td>
+              <td><span class="arch-badge-tech">PostgreSQL 17</span> with Row-Level Security (RLS)</td>
+              <td>Zero cross-school data leakage. Each institution operates within an isolated logical space enforced by the database engine.</td>
+            </tr>
+            <tr>
+              <td><strong>Web &amp; PWA Stack</strong></td>
+              <td><span class="arch-badge-tech">React 19</span> &middot; Vite 6 &middot; TanStack Query</td>
+              <td>Ultra-fast page loads, real-time UI state sync, and lightweight installable PWA clients on Android, iOS, Windows and macOS.</td>
+            </tr>
+            <tr>
+              <td><strong>Identity &amp; MFA</strong></td>
+              <td><span class="arch-badge-tech">scrypt &middot; JWT &middot; TOTP</span></td>
+              <td>Industry-standard password stretching with mandatory two-factor authentication for sensitive administrative actions.</td>
+            </tr>
+            <tr>
+              <td><strong>CBT Concurrency</strong></td>
+              <td><span class="arch-badge-tech">Lockdown &amp; Shuffling</span></td>
+              <td>Deterministic seed-based question/option scrambling, window-blur penalty counters, and instantaneous autosave.</td>
+            </tr>
+            <tr>
+              <td><strong>Statutory Compliance</strong></td>
+              <td><span class="arch-badge-tech">DPDP Act 2023 &middot; EMIS</span></td>
+              <td>Cryptographic audit logs, parental consent tracking, right to data portability, and automated export to government portals.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture Consultation Callout -->
+  <section class="section tint" style="padding-block:clamp(48px, 6vw, 84px);">
+    <div class="wrap">
+      <div class="org-bottom-cta">
+        <h3 class="org-bottom-cta-title">Need a Custom Enterprise Deployment or Self-Hosted VPC?</h3>
+        <p class="org-bottom-cta-copy">Large educational groups and university networks can request private cloud deployments, custom SSO integration (Google Workspace, Microsoft Azure Entra ID), or on-premise CBT appliances.</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+          <a class="btn btn-gold" href="contact.html">Schedule Technical Review</a>
+          <a class="btn btn-ghost-light" href="features.html">Explore All 50+ Modules</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-cta">
+      <div>
+        <h2>Ready to simplify your institute? Try Scored today!</h2>
+        <p>Save time, cut spreadsheet errors and keep your institute data secure with one platform for the office and the exam hall.</p>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="contact.html">Book Your Demo</a>
+        <a class="btn btn-outline" href="contact.html">Ask for a Quote</a>
+      </div>
+    </div>
+    <div class="foot-main">
+      <div class="foot-brand">
+        <a class="brand" href="index.html" aria-label="Scored home">
+          <img src="assets/scored-footer-logo-blue.png" alt="Scored" class="foot-logo-img" width="170" height="170">
+        </a>
+        <p>AI-enabled institute management system and computer-based test (CBT) platform for schools, colleges and coaching centres across India.</p>
+      </div>
+      <nav class="foot-nav" aria-label="Footer Navigation">
+        <h2>Quick links</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="why.html">Why Scored</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="organization.html">Organization</a></li>
+          <li><a href="architecture.html">Architecture</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <nav class="foot-nav" aria-label="Key Features">
+        <h2>Features</h2>
+        <ul>
+          <li><a href="features.html#m-assessment">Exam scheduler</a></li>
+          <li><a href="features.html#m-questions">Question bank</a></li>
+          <li><a href="features.html#f-cbt" data-feat>CBT tests</a></li>
+          <li><a href="features.html#f-marks" data-feat>Auto grading</a></li>
+          <li><a href="features.html#f-report" data-feat>Report cards</a></li>
+          <li><a href="features.html#f-secure" data-feat>Secure exam mode</a></li>
+        </ul>
+      </nav>
+      <div class="foot-contact">
+        <h2>Contact</h2>
+        <address>
+          <a href="https://www.google.com/maps/search/?api=1&query=East%20Main%20Road%2C%20Madambakkam%2C%20Chennai%20600126" target="_blank" rel="noopener noreferrer">Plot 2, East Main Road,<br>Yeshwath Nagar, Madambakkam,<br>Chennai – 600126</a>
+          <a href="tel:+919150260903">+91 91502 60903</a>
+          <a href="mailto:hr@scored.co.in">hr@scored.co.in</a>
+          <a href="https://www.scored.co.in/">www.scored.co.in</a>
+        </address>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Copyright &copy; <span id="year">2026</span> Scored Technologies. All rights reserved.</span>
+      <div class="foot-socials">
+        <a href="https://www.youtube.com/@Scored-m8x" target="_blank" rel="noopener noreferrer" class="foot-social-link yt" aria-label="Scored on YouTube" title="YouTube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="https://wa.me/919150260903" target="_blank" rel="noopener noreferrer" class="foot-social-link wa" aria-label="Message Scored on WhatsApp" title="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1.4 5.1 5.2-1.4A9.9 9.9 0 1 0 12.04 2zm0 18.1a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.1.8.83-3-.2-.31a8.2 8.2 0 1 1 6.97 3.84zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.15.16-.29.18-.54.06a6.7 6.7 0 0 1-3.32-2.9c-.25-.43.25-.4.72-1.33.08-.16.04-.3-.02-.43l-.76-1.83c-.2-.48-.4-.41-.56-.42h-.48a.92.92 0 0 0-.66.31 2.8 2.8 0 0 0-.87 2.07 4.8 4.8 0 0 0 1 2.56 11 11 0 0 0 4.22 3.73c1.57.68 2.19.74 2.98.62.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.15-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Contact Button -->
+<a href="contact.html" class="floating-chat-btn" aria-label="Contact Scored" title="Contact Scored — hr@scored.co.in">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+  </svg>
+</a>
+
+<script src="assets/js/future-simulations.js" defer></script>
+<script src="assets/js/fixes.js" defer></script>
+</body>
+</html>

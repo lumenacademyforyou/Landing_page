@@ -41,7 +41,7 @@
       "name": "Scored",
       "url": "https://www.scored.co.in/",
       "slogan": "Writing history in edtech",
-      "email": "rajaaram@scored.co.in",
+      "email": "hr@scored.co.in",
       "telephone": "+91 91502 60903",
       "address": {"@type": "PostalAddress", "streetAddress": "Plot 2, East Main Road, Yeshwath Nagar, Madambakkam", "addressLocality": "Chennai", "postalCode": "600126", "addressRegion": "Tamil Nadu", "addressCountry": "IN"},
       "areaServed": "IN"
@@ -329,7 +329,7 @@
 
             <div class="mega-footer">
               <div class="mega-footer-left">
-                <span class="mega-footer-tag">Scored Architecture</span>
+                <a href="architecture.html" class="mega-footer-tag" style="text-decoration:none;">Scored Architecture &rarr;</a>
                 <span style="color:#64748b;font-weight:500;">Scored powers 8 core academic dimensions with enterprise exam security</span>
               </div>
               <div class="mega-footer-right">
@@ -344,7 +344,8 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <a class="btn btn-primary btn-sm" href="features.html">Explore Platform</a>
+        <button type="button" class="btn-login btn-sm" data-modal="login-dialog" aria-haspopup="dialog">Log In</button>
+        <a class="btn btn-primary btn-sm" href="contact.html">Sign Up</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
@@ -398,8 +399,9 @@
       
     
       <a href="contact.html">Contact Us</a>
-          <div class="mobile-menu-cta" style="padding-top:14px;margin-top:14px;border-top:1px solid rgba(219,230,242,.75);">
-        <a class="btn btn-primary" href="features.html" style="width:100%;justify-content:center;color:#fff !important;border-radius:10px;">Explore Platform &rarr;</a>
+      <div class="mobile-menu-cta" style="display:flex;gap:10px;padding-top:14px;margin-top:14px;border-top:1px solid rgba(219,230,242,.75);">
+        <button type="button" class="btn btn-outline" data-modal="login-dialog" style="flex:1;justify-content:center;color:var(--scored-royal) !important;border:1.5px solid var(--scored-royal) !important;border-radius:10px;font-weight:600;padding:10px 14px;">Log In</button>
+        <a class="btn btn-primary" href="contact.html" style="flex:1;justify-content:center;color:#fff !important;border-radius:10px;padding:10px 14px;">Sign Up &rarr;</a>
       </div>
     </div>
   </div>
@@ -416,19 +418,56 @@
           </video>
     </div>
     <div class="hero-tint" aria-hidden="true"></div>
-    <div class="wrap hero-center">
-      <div class="future-badge dark"><span class="pulse-dot"></span> NEXT-GEN AI ACADEMIC &amp; CBT EXAMINATION PLATFORM</div>
+    <div class="wrap hero-layout">
+      <div class="hero-center">
+        <div class="future-badge dark"><span class="pulse-dot"></span> NEXT-GEN ACADEMIC &amp; CBT PLATFORM</div>
         <h1 id="hero-title">One Platform. <span class="hl">Smarter Institutional Management.</span></h1>
-      <p class="lede">Manage attendance, payroll, admissions and computer-based exams (CBT) with analysis, securely in one place.</p>
-      <div class="hero-ctas">
+        <p class="lede">Manage attendance, payroll, admissions and computer-based exams (CBT) with analysis, securely in one place.</p>
+        <div class="hero-ctas">
           <a class="btn btn-primary" href="#evaluations-showcase">Explore Live Simulation</a>
           <a class="btn btn-outline" href="contact.html">Book a Consultation</a>
         </div>
-      <ul class="hero-points">
-        <li><svg aria-hidden="true"><use href="#check"/></svg>Runs in any browser</li>
-        <li><svg aria-hidden="true"><use href="#check"/></svg>No more spreadsheets</li>
-        <li><svg aria-hidden="true"><use href="#check"/></svg>Role-based access</li>
-      </ul>
+        <ul class="hero-points">
+          <li><svg aria-hidden="true"><use href="#check"/></svg>Runs in any browser</li>
+          <li><svg aria-hidden="true"><use href="#check"/></svg>No more spreadsheets</li>
+          <li><svg aria-hidden="true"><use href="#check"/></svg>Role-based access</li>
+        </ul>
+      </div>
+
+      <!-- Desktop Product Preview Card -->
+      <aside class="hero-preview-desk" aria-label="Live platform preview">
+        <div class="preview-glass-card">
+          <div class="preview-card-header">
+            <div class="preview-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <span class="preview-title">Scored Exam &amp; Campus Control Board</span>
+            <span class="preview-live-badge"><span class="pulse-dot green"></span> Live Concurrency</span>
+          </div>
+          <div class="preview-card-content">
+            <div class="preview-metric-row">
+              <div class="pm-box">
+                <span class="pm-val">Class 10-A</span>
+                <span class="pm-lbl">Physics Midterm CBT</span>
+              </div>
+              <div class="pm-box highlight">
+                <span class="pm-val">48 / 48</span>
+                <span class="pm-lbl">Active &amp; Proctored</span>
+              </div>
+              <div class="pm-box">
+                <span class="pm-val">0</span>
+                <span class="pm-lbl">Integrity Alerts</span>
+              </div>
+            </div>
+            <div class="preview-progress-bar" aria-label="Exam completion progress">
+              <div class="ppb-fill" style="width: 74%;"></div>
+            </div>
+            <div class="preview-sub-features">
+              <span class="psf-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Automated Question Shuffling</span>
+              <span class="psf-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Face ID Verification Active</span>
+              <span class="psf-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Instant Automated Grading</span>
+            </div>
+          </div>
+        </div>
+      </aside>
     </div>
     <button class="hv-toggle" type="button" id="hv-toggle" aria-label="Pause background video" aria-pressed="false" hidden>
       <svg class="i-pause" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>
@@ -441,6 +480,33 @@
         <path d="M0,98 C260,54 520,66 760,96 C1000,126 1220,118 1440,76" fill="none" stroke="#F5C24B" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
         <path d="M0,136 C300,110 600,118 900,138 C1150,155 1320,150 1440,128 L1440,160 L0,160 Z" fill="var(--wave-floor)"/>
       </svg>
+    </div>
+  </section>
+
+  <!-- Hero Trust Metrics Bar -->
+  <section class="hero-trust-bar" aria-label="Key platform capabilities">
+    <div class="wrap">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <span class="trust-num">50<span class="trust-accent">+</span></span>
+          <span class="trust-lbl">Integrated Modules</span>
+        </div>
+        <div class="trust-sep" aria-hidden="true"></div>
+        <div class="trust-item">
+          <span class="trust-num">100<span class="trust-accent">%</span></span>
+          <span class="trust-lbl">Secure CBT Engine</span>
+        </div>
+        <div class="trust-sep" aria-hidden="true"></div>
+        <div class="trust-item">
+          <span class="trust-num">9</span>
+          <span class="trust-lbl">Academic &amp; Admin Roles</span>
+        </div>
+        <div class="trust-sep" aria-hidden="true"></div>
+        <div class="trust-item">
+          <span class="trust-num">100<span class="trust-accent">+</span></span>
+          <span class="trust-lbl">Board Compliant (CBSE / ICSE / State)</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1155,7 +1221,7 @@
     <div class="wrap">
       <div class="vx-head">
         <h2 id="faq-title">Frequently Asked Questions</h2>
-        <p>Can&#39;t find your answer? Email <a href="mailto:rajaaram@scored.co.in">rajaaram@scored.co.in</a>.</p>
+        <p>Can&#39;t find your answer? Email <a href="mailto:hr@scored.co.in">hr@scored.co.in</a>.</p>
       </div>
       <div class="faq-wrap">
         <div class="faq">
@@ -1228,6 +1294,7 @@
           <li><a href="services.html">Services</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="organization.html">Organization Chart</a></li>
+          <li><a href="architecture.html">Architecture</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </nav>
@@ -1247,7 +1314,7 @@
         <address>
           <a href="https://www.google.com/maps/search/?api=1&query=East%20Main%20Road%2C%20Madambakkam%2C%20Chennai%20600126" target="_blank" rel="noopener noreferrer">Plot 2, East Main Road,<br>Yeshwath Nagar, Madambakkam,<br>Chennai – 600126</a>
           <a href="tel:+919150260903">+91 91502 60903</a>
-          <a href="mailto:rajaaram@scored.co.in">rajaaram@scored.co.in</a>
+          <a href="mailto:hr@scored.co.in">hr@scored.co.in</a>
           <a href="https://www.scored.co.in/">www.scored.co.in</a>
         </address>
       </div>
@@ -1625,7 +1692,7 @@
 </script>
 
 <!-- Floating Contact Button -->
-<a href="contact.html" class="floating-chat-btn" aria-label="Contact Scored" title="Contact Scored — rajaaram@scored.co.in">
+<a href="contact.html" class="floating-chat-btn" aria-label="Contact Scored" title="Contact Scored — hr@scored.co.in">
   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
   </svg>

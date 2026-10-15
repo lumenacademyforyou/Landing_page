@@ -3029,6 +3029,13 @@ dialog.demo, #demo {
   }
 }
 
+/* Mail button on landscape phones: hide so it never sits over hero CTAs */
+@media (orientation: landscape) and (max-height: 550px) {
+  .floating-chat-btn {
+    display: none !important;
+  }
+}
+
 /* Touch targets: text links get at least a 40px tall tap area on phones */
 @media (max-width: 768px) {
   .more-link,

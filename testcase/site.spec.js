@@ -1,13 +1,14 @@
 import { expect, test } from "@playwright/test";
 
 const pages = [
-  { path: "/index.html", heading: /future of institutional governance/i },
+  { path: "/index.html", heading: /smarter institutional management|future of institutional governance/i },
   { path: "/about.html", heading: /writing the future history of educational technology/i },
   { path: "/features.html", heading: /engineered for institutional scale/i },
   { path: "/pricing.html", heading: /predictable institutional subscriptions/i },
   { path: "/services.html", heading: /enterprise onboarding/i },
   { path: "/why.html", heading: /why/i },
   { path: "/organization.html", heading: /organization|leadership/i },
+  { path: "/architecture.html", heading: /technical architecture|security framework/i },
   { path: "/404.html", heading: /^404$/ }
 ];
 
@@ -50,7 +51,7 @@ test.describe("Scored static website", () => {
 
     await expect(menuButton).toHaveAttribute("aria-expanded", "true");
     await expect(mobileMenu).toBeVisible();
-    await expect(mobileMenu.getByRole("link", { name: "Features" })).toBeVisible();
+    await expect(mobileMenu.getByRole("button", { name: "Features" }).or(mobileMenu.getByRole("link", { name: "Features" }))).toBeVisible();
 
     await page.keyboard.press("Escape");
     await expect(menuButton).toHaveAttribute("aria-expanded", "false");
@@ -92,5 +93,41 @@ test.describe("Scored static website", () => {
         expect(targetHtml, `${href} should target an existing element`).toMatch(idPattern);
       }
     }
+  });
+
+  test("header Log In button opens institutional login modal dialog", async ({ page }) => {
+    await page.goto("/index.html");
+
+    const loginBtn = page.getByRole("button", { name: "Log In" }).first();
+    await expect(loginBtn).toBeVisible();
+    await loginBtn.click();
+
+    const dialog = page.locator("#institutional-login-modal");
+    await expect(dialog).toBeVisible();
+    await expect(dialog.getByRole("heading", { name: "Institutional Login" })).toBeVisible();
+
+    // Close with Escape or close button
+    const closeBtn = dialog.locator(".login-modal-close");
+    await closeBtn.click();
+    await expect(dialog).toBeHidden();
+  });
+
+  test("home page contains verified trust metrics row", async ({ page }) => {
+    await page.goto("/index.html");
+
+    const trustBar = page.locator(".hero-trust-bar");
+    await expect(trustBar).toBeVisible();
+    await expect(trustBar).toContainText("50+ Integrated Modules");
+    await expect(trustBar).toContainText("100% Secure CBT Engine");
+    await expect(trustBar).toContainText("Academic & Admin Roles");
+    await expect(trustBar).toContainText("100+ Board Compliant");
+  });
+
+  test("why.html has all-caps heading for student lifecycle", async ({ page }) => {
+    await page.goto("/why.html");
+
+    const heading = page.locator("#life-title");
+    await expect(heading).toBeVisible();
+    await expect(heading).toHaveText("FROM ADMISSION TO REPORT CARD, ONE STUDENT RECORD");
   });
 });
