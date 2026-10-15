@@ -3189,3 +3189,13 @@ dialog.demo, #demo {
 .foot-cta .btn-outline:hover {
   background: rgba(255, 255, 255, 0.14) !important;
 }
+
+/* Hero buttons: one clear primary action, the second one quieter */
+.vx-hero .hero-ctas .btn-primary {
+  box-shadow: 0 6px 22px rgba(21, 84, 201, 0.6) !important;
+}
+.vx-hero .hero-ctas .btn-outline {
+  background: transparent !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.4) !important;
+  font-weight: 600;
+}
