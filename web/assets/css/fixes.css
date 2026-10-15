@@ -92,7 +92,7 @@ html:not(.js) .ng-reveal{opacity:1 !important;transform:none !important}
   }
 }
 
-/* Header Login & Sign Up */
+/* Header Login */
 .btn-login {
   display: inline-flex;
   align-items: center;
@@ -364,3 +364,45 @@ dialog.scored-login-modal::backdrop {
     padding: 16px;
   }
 }
+
+/* ===== Responsive alignment fixes (Oct 2026 audit) ===== */
+
+/* About: Vision / Mission / Values - one column on phones/tablets, three on desktop (no 2+1 orphan) */
+.vmv-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:48px}
+@media (min-width:880px){.vmv-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* How it works (home + services): keep all three steps in one row from tablet up */
+@media (min-width:700px){.steps{grid-template-columns:repeat(3,minmax(0,1fr)) !important}}
+@media (max-width:699px){.steps{grid-template-columns:1fr !important}}
+
+/* Pricing on tablets: featured plan full width on top, the other two side by side */
+@media (min-width:700px) and (max-width:1000px){
+  .plans{grid-template-columns:repeat(2,minmax(0,1fr)) !important;max-width:860px !important;grid-auto-flow:row dense}
+  .plans .plan.featured{grid-column:1 / -1;order:-1}
+}
+
+/* Organization: company detail rows stack label above value on small screens */
+@media (max-width:520px){
+  .org-company-list li{flex-direction:column;gap:2px}
+  .org-company-list li > *{min-width:0;overflow-wrap:anywhere}
+}
+
+/* Architecture: spec table becomes stacked cards on phones (no hidden third column) */
+@media (max-width:640px){
+  .arch-table-wrap{overflow-x:visible}
+  .arch-table,.arch-table tbody,.arch-table tr,.arch-table td{display:block;width:100% !important}
+  .arch-table thead{display:none}
+  .arch-table tr{padding:16px 18px;border-bottom:1px solid #EEF3FA}
+  .arch-table tr:last-child{border-bottom:none}
+  .arch-table td{padding:4px 0;border-bottom:none}
+  .arch-table td:first-child{font-size:1rem;margin-bottom:4px}
+  .arch-table td:nth-child(2)::before,.arch-table td:nth-child(3)::before{
+    display:block;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#64748b;margin:6px 0 2px}
+  .arch-table td:nth-child(2)::before{content:"Scored implementation"}
+  .arch-table td:nth-child(3)::before{content:"Institutional advantage"}
+}
+
+/* Login dialog: keep the .scored.co.in suffix inside the field */
+.login-input-wrap input{min-width:0}
+.domain-suffix{flex-shrink:0;white-space:nowrap;padding-left:6px}
+@media (max-width:400px){.domain-suffix{font-size:.8rem}}

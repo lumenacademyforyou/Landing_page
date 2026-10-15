@@ -344,7 +344,6 @@
       </ul>
       <div class="nav-actions">
         <button type="button" class="btn-login btn-sm" data-modal="login-dialog" aria-haspopup="dialog">Log In</button>
-        <a class="btn btn-primary btn-sm" href="contact.html">Sign Up</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
@@ -368,9 +367,8 @@
       <a href="services.html">Services</a>
       <a href="pricing.html">Pricing</a>
       <a href="contact.html">Contact Us</a>
-      <div class="mobile-menu-cta" style="display:flex;gap:10px;padding-top:14px;margin-top:14px;border-top:1px solid rgba(219,230,242,.75);">
-        <button type="button" class="btn btn-outline" data-modal="login-dialog" style="flex:1;justify-content:center;color:var(--scored-royal) !important;border:1.5px solid var(--scored-royal) !important;border-radius:10px;font-weight:600;padding:10px 14px;">Log In</button>
-        <a class="btn btn-primary" href="contact.html" style="flex:1;justify-content:center;color:#fff !important;border-radius:10px;padding:10px 14px;">Sign Up &rarr;</a>
+      <div class="mobile-menu-cta" style="padding-top:14px;margin-top:14px;border-top:1px solid rgba(219,230,242,.75);">
+        <button type="button" class="btn btn-outline" data-modal="login-dialog" style="width:100%;justify-content:center;color:var(--scored-royal) !important;border:1.5px solid var(--scored-royal) !important;border-radius:10px;font-weight:600;padding:10px 14px;">Log In</button>
       </div>
     </div>
   </div>
@@ -658,39 +656,39 @@
         <p>Save time, cut spreadsheet errors and keep your institute data secure with one platform for the office and the exam hall.</p>
       </div>
       <div class="hero-ctas">
-        <a class="btn btn-gold" href="contact.html">Book Your Demo</a>
-        <a class="btn btn-outline" href="contact.html">Ask for a Quote</a>
+        <a class="btn btn-primary" href="index.html#evaluations-showcase">Explore Live Simulation</a>
+        <a class="btn btn-outline" href="contact.html">Book a Consultation</a>
       </div>
     </div>
-    <div class="foot-main">
+    <div class="foot-grid vx">
       <div class="foot-brand">
-        <a class="brand" href="index.html" aria-label="Scored home">
-          <img src="assets/scored-footer-logo-blue.png" alt="Scored" class="foot-logo-img" width="170" height="170">
+        <a class="foot-logo-card" href="index.html" aria-label="Scored home">
+          <img src="assets/scored-logo-square.jpg" alt="Scored" class="foot-logo-img" width="480" height="466" loading="lazy">
         </a>
-        <p>AI-enabled institute management system and computer-based test (CBT) platform for schools, colleges and coaching centres across India.</p>
+        <h3 style="font-size:1.15rem;font-weight:700;color:var(--navy,#0B2545);margin:4px 0 0;">Scored Technologies</h3>
+        <p class="about">Streamline your institute with Scored: AI-enabled institute management and CBT exams, all-in-one and ready to go.</p>
       </div>
-      <nav class="foot-nav" aria-label="Footer Navigation">
+      <nav aria-label="Quick links">
         <h2>Quick links</h2>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html">About Us</a></li>
           <li><a href="why.html">Why Scored</a></li>
-          <li><a href="features.html">Features</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="organization.html">Organization</a></li>
+          <li><a href="organization.html">Organization Chart</a></li>
           <li><a href="architecture.html">Architecture</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </nav>
-      <nav class="foot-nav" aria-label="Key Features">
+      <nav aria-label="Features">
         <h2>Features</h2>
         <ul>
-          <li><a href="features.html#m-assessment">Exam scheduler</a></li>
-          <li><a href="features.html#m-questions">Question bank</a></li>
-          <li><a href="features.html#f-cbt" data-feat>CBT tests</a></li>
-          <li><a href="features.html#f-marks" data-feat>Auto grading</a></li>
-          <li><a href="features.html#f-report" data-feat>Report cards</a></li>
+          <li><a href="features.html#f-attendance" data-feat>Attendance</a></li>
+          <li><a href="features.html#f-payroll" data-feat>Payroll</a></li>
+          <li><a href="features.html#f-admissions" data-feat>Admissions &amp; administration</a></li>
+          <li><a href="features.html#f-cbt" data-feat>CBT exams</a></li>
+          <li><a href="features.html#f-analysis" data-feat>Analysis</a></li>
           <li><a href="features.html#f-secure" data-feat>Secure exam mode</a></li>
         </ul>
       </nav>
@@ -724,6 +722,65 @@
     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
   </svg>
 </a>
+
+<script>
+(function(){
+  "use strict";
+  var yr = document.getElementById("year");
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  /* Mobile menu */
+  var nav = document.querySelector(".nav");
+  var toggle = document.querySelector(".nav-toggle");
+  var mobileMenu = document.getElementById("mobile-menu");
+  function setMobile(open){
+    nav.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  }
+  if (nav && toggle) {
+    toggle.addEventListener("click", function(){ setMobile(!nav.classList.contains("open")); });
+    if (mobileMenu) mobileMenu.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ setMobile(false); }); });
+  }
+
+  /* Mobile Features sub-list */
+  var mFeat = document.querySelector(".m-feat");
+  var mFeatList = document.getElementById("m-feat-list");
+  if (mFeat && mFeatList) {
+    mFeat.addEventListener("click", function(){
+      var open = mFeat.getAttribute("aria-expanded") !== "true";
+      mFeat.setAttribute("aria-expanded", String(open));
+      mFeatList.hidden = !open;
+    });
+  }
+
+  /* Desktop Features dropdown */
+  var menuBtn = document.querySelector(".menu-btn");
+  var dropdown = document.getElementById("features-menu");
+  var hasMenu = document.querySelector(".has-menu");
+  if (menuBtn && dropdown && hasMenu) {
+    var closeTimer, hoverOpenedAt = 0;
+    var setMenu = function(open){ menuBtn.setAttribute("aria-expanded", String(open)); dropdown.hidden = !open; };
+    menuBtn.addEventListener("click", function(){
+      if (!dropdown.hidden && Date.now() - hoverOpenedAt < 700) return;
+      setMenu(dropdown.hidden);
+    });
+    hasMenu.addEventListener("mouseenter", function(){
+      if (!window.matchMedia("(hover:hover)").matches) return;
+      clearTimeout(closeTimer);
+      if (dropdown.hidden){ hoverOpenedAt = Date.now(); setMenu(true); }
+    });
+    hasMenu.addEventListener("mouseleave", function(){ if (window.matchMedia("(hover:hover)").matches){ closeTimer = setTimeout(function(){ setMenu(false); }, 180); } });
+    hasMenu.addEventListener("focusout", function(e){ if (!hasMenu.contains(e.relatedTarget)) setMenu(false); });
+    document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !dropdown.hidden){ setMenu(false); menuBtn.focus(); } });
+    document.addEventListener("click", function(e){ if (!hasMenu.contains(e.target)) setMenu(false); });
+  }
+
+  /* Header shadow on scroll */
+  var header = document.querySelector(".site-header");
+  if (header) window.addEventListener("scroll", function(){ header.classList.toggle("scrolled", window.scrollY > 8); }, {passive:true});
+})();
+</script>
 
 <script src="assets/js/future-simulations.js" defer></script>
 <script src="assets/js/fixes.js" defer></script>
